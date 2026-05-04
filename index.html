@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Chico Grill · Cheddar artesanal | Links</title>
+    <title>Chico Grill · Cheddar Artesanal | Links</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --preto: #0d0d0d;
-            --vermelho: #c8102e;
-            --vermelho-escuro: #9e0c24;
-            --dourado: #d4a017;
-            --dourado-claro: #f0c040;
+            --preto: #0a0a0a;
+            --preto-escuro: #050505;
+            --laranja: #e67e22;
+            --laranja-escuro: #d35400;
+            --laranja-claro: #f39c12;
+            --dourado: #f39c12;
             --cinza-escuro: #1a1a1a;
             --cinza-medio: #2a2a2a;
             --cinza-borda: #333;
@@ -25,8 +26,8 @@
         body {
             background: var(--preto);
             background-image:
-                radial-gradient(ellipse at 20% 0%, rgba(200,16,46,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 100%, rgba(212,160,23,0.1) 0%, transparent 50%);
+                radial-gradient(ellipse at 20% 0%, rgba(230,126,34,0.15) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 100%, rgba(243,156,18,0.08) 0%, transparent 50%);
             font-family: 'Barlow', sans-serif;
             color: var(--branco);
             min-height: 100vh;
@@ -45,7 +46,7 @@
         }
 
         .linktree-container {
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -64,28 +65,35 @@
             margin-bottom: 1rem;
         }
 
-        /* Logo real do site */
+        /* Logo real com imagem */
         .logo-img-area {
             display: flex;
             align-items: center;
             gap: 14px;
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(200,16,46,0.3);
-            border-radius: 16px;
-            padding: 14px 24px;
+            border: 1px solid rgba(230,126,34,0.3);
+            border-radius: 20px;
+            padding: 12px 28px;
             backdrop-filter: blur(8px);
-            box-shadow: 0 0 40px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+            box-shadow: 0 0 40px rgba(230,126,34,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
-        /* Ícone de chama como substituto visual da logo */
-        .flame-logo {
-            position: relative;
-            width: 56px;
-            height: 56px;
+        /* Estilo para a imagem da logo */
+        .logo-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--laranja), var(--laranja-escuro));
+            padding: 4px;
+            box-shadow: 0 0 20px rgba(230,126,34,0.5);
         }
-        .flame-logo svg {
+
+        .logo-img img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .logo-text-block h1 {
@@ -96,7 +104,7 @@
             text-transform: uppercase;
             color: #fff;
             line-height: 1;
-            text-shadow: 0 0 30px rgba(200,16,46,0.6);
+            text-shadow: 0 0 30px rgba(230,126,34,0.6);
         }
 
         .logo-text-block .sub {
@@ -104,7 +112,7 @@
             font-weight: 500;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--dourado);
+            color: var(--laranja);
             display: block;
             margin-top: 4px;
         }
@@ -114,8 +122,8 @@
             align-items: center;
             gap: 8px;
             margin-top: 12px;
-            background: rgba(200,16,46,0.12);
-            border: 1px solid rgba(200,16,46,0.25);
+            background: rgba(230,126,34,0.12);
+            border: 1px solid rgba(230,126,34,0.25);
             padding: 6px 16px;
             border-radius: 40px;
             font-size: 0.78rem;
@@ -126,7 +134,7 @@
         .tagline .dot {
             width: 6px; height: 6px;
             border-radius: 50%;
-            background: var(--vermelho);
+            background: var(--laranja);
             animation: pulse 2s infinite;
         }
 
@@ -156,11 +164,11 @@
         }
 
         .social-link:hover {
-            background: var(--vermelho);
-            border-color: var(--vermelho);
+            background: var(--laranja);
+            border-color: var(--laranja);
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200,16,46,0.4);
+            box-shadow: 0 6px 20px rgba(230,126,34,0.4);
         }
 
         .insta-tag {
@@ -181,7 +189,7 @@
             transition: border-color 0.2s;
         }
 
-        .card:hover { border-color: rgba(200,16,46,0.2); }
+        .card:hover { border-color: rgba(230,126,34,0.2); }
 
         .card-title {
             display: flex;
@@ -192,7 +200,7 @@
             font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--dourado);
+            color: var(--laranja);
             margin-bottom: 1.1rem;
             padding-bottom: 0.8rem;
             border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -218,8 +226,8 @@
         }
 
         .tag {
-            background: rgba(200,16,46,0.12);
-            border: 1px solid rgba(200,16,46,0.25);
+            background: rgba(230,126,34,0.12);
+            border: 1px solid rgba(230,126,34,0.25);
             padding: 5px 14px;
             border-radius: 40px;
             font-size: 0.72rem;
@@ -227,13 +235,13 @@
             font-weight: 500;
         }
 
-        /* ───── BOTÃO ABRIR MODAL DE LOJAS ───── */
-        .btn-stores-modal {
+        /* ───── BOTÕES PRINCIPAIS ───── */
+        .btn-stores-modal, .btn-whats-modal {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(135deg, var(--vermelho-escuro), var(--vermelho));
+            background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja));
             border: none;
             border-radius: 14px;
             padding: 1.1rem 1.5rem;
@@ -245,74 +253,28 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: all 0.2s;
-            box-shadow: 0 8px 30px rgba(200,16,46,0.35);
+            box-shadow: 0 8px 30px rgba(230,126,34,0.35);
             margin-bottom: 1.2rem;
         }
 
-        .btn-stores-modal:hover {
-            background: linear-gradient(135deg, var(--vermelho), #e8152f);
+        .btn-stores-modal:hover, .btn-whats-modal:hover {
+            background: linear-gradient(135deg, var(--laranja), #f39c12);
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(200,16,46,0.5);
+            box-shadow: 0 12px 40px rgba(230,126,34,0.5);
         }
 
-        .btn-stores-modal .left {
+        .btn-stores-modal .left, .btn-whats-modal .left {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .btn-stores-modal .badge {
+        .btn-stores-modal .badge, .btn-whats-modal .badge {
             background: rgba(0,0,0,0.25);
             border-radius: 8px;
             padding: 3px 10px;
             font-size: 0.7rem;
             letter-spacing: 1px;
-        }
-
-        /* ───── WHATSAPP GRID ───── */
-        .whats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 8px;
-        }
-
-        .whats-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 8px 14px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: #ddd;
-            transition: all 0.15s;
-            font-size: 0.78rem;
-        }
-
-        .whats-item:hover {
-            background: rgba(37,211,102,0.1);
-            border-color: rgba(37,211,102,0.3);
-            color: #fff;
-            transform: translateX(2px);
-        }
-
-        .whats-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-        .whats-left i { color: #25d366; font-size: 1rem; }
-
-        .whats-badge {
-            font-size: 0.62rem;
-            background: rgba(37,211,102,0.15);
-            border: 1px solid rgba(37,211,102,0.2);
-            padding: 2px 8px;
-            border-radius: 40px;
-            color: #25d366;
         }
 
         /* ───── BOTÃO IFOOD ───── */
@@ -348,6 +310,39 @@
             letter-spacing: 1px;
         }
 
+        /* ───── BOTÕES SITE ───── */
+        .btn-site {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #f0f0f0;
+            transition: all 0.2s;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-site:hover {
+            background: rgba(230,126,34,0.1);
+            border-color: rgba(230,126,34,0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-site .site-badge {
+            background: var(--laranja);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+        }
+
         /* ───── FOOTER ───── */
         .footer-note {
             text-align: center;
@@ -359,10 +354,10 @@
             line-height: 1.8;
         }
 
-        .footer-note span { color: var(--dourado); font-weight: 500; }
+        .footer-note span { color: var(--laranja); font-weight: 500; }
 
         /* ═══════════════════════════════════════
-           MODAL DE UNIDADES
+           MODAL (UNIFICADO - UNIDADES E WHATS)
         ═══════════════════════════════════════ */
         .modal-overlay {
             display: none;
@@ -391,7 +386,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 28px 28px 0 0;
             width: 100%;
-            max-width: 640px;
+            max-width: 680px;
             max-height: 92vh;
             display: flex;
             flex-direction: column;
@@ -439,7 +434,7 @@
             gap: 10px;
         }
 
-        .modal-title i { color: var(--vermelho); }
+        .modal-title i { color: var(--laranja); }
 
         .modal-close {
             background: rgba(255,255,255,0.06);
@@ -453,7 +448,7 @@
             transition: all 0.15s;
         }
 
-        .modal-close:hover { background: var(--vermelho); color: #fff; border-color: var(--vermelho); }
+        .modal-close:hover { background: var(--laranja); color: #fff; border-color: var(--laranja); }
 
         /* Search + Filtros */
         .search-wrap {
@@ -485,8 +480,101 @@
         }
 
         .modal-search::placeholder { color: #555; }
-        .modal-search:focus { border-color: rgba(200,16,46,0.5); }
+        .modal-search:focus { border-color: rgba(230,126,34,0.5); }
 
+        /* Lista de itens no modal (unidades ou whats) */
+        .modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 1.5rem 2rem;
+        }
+
+        .modal-body::-webkit-scrollbar { width: 3px; }
+        .modal-body::-webkit-scrollbar-track { background: #1a1a1a; }
+        .modal-body::-webkit-scrollbar-thumb { background: var(--laranja); border-radius: 10px; }
+
+        .modal-count {
+            font-size: 0.72rem;
+            color: #555;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-count span { color: var(--laranja); font-weight: 600; }
+
+        /* Estilo para itens (unidades ou contatos) */
+        .item-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 8px;
+            background: rgba(255,255,255,0.02);
+            transition: all 0.15s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .item-card:hover {
+            background: rgba(230,126,34,0.08);
+            border-color: rgba(230,126,34,0.3);
+            transform: translateX(2px);
+        }
+
+        .item-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--laranja);
+            min-width: 32px;
+            text-align: center;
+            padding-top: 2px;
+        }
+
+        .item-info { flex: 1; }
+
+        .item-name {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .item-detail {
+            font-size: 0.73rem;
+            color: #888;
+            line-height: 1.3;
+        }
+
+        .item-badge {
+            font-size: 0.65rem;
+            background: rgba(230,126,34,0.15);
+            border: 1px solid rgba(230,126,34,0.2);
+            padding: 3px 10px;
+            border-radius: 40px;
+            color: var(--laranja);
+            font-weight: 500;
+        }
+
+        .wpp-icon {
+            color: #25d366;
+            font-size: 1rem;
+            margin-right: 6px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #555;
+        }
+
+        .no-results i { font-size: 2rem; color: #333; margin-bottom: 12px; display: block; }
+
+        /* Filtros */
         .filter-tabs {
             display: flex;
             gap: 6px;
@@ -513,120 +601,15 @@
 
         .filter-tab.active,
         .filter-tab:hover {
-            background: var(--vermelho);
-            border-color: var(--vermelho);
+            background: var(--laranja);
+            border-color: var(--laranja);
             color: #fff;
         }
 
-        /* Lista de lojas no modal */
-        .modal-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem 1.5rem 2rem;
-        }
-
-        .modal-body::-webkit-scrollbar { width: 3px; }
-        .modal-body::-webkit-scrollbar-track { background: #1a1a1a; }
-        .modal-body::-webkit-scrollbar-thumb { background: var(--vermelho); border-radius: 10px; }
-
-        .modal-count {
-            font-size: 0.72rem;
-            color: #555;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .modal-count span { color: var(--dourado); font-weight: 600; }
-
-        .store-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 12px 14px;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.06);
-            margin-bottom: 8px;
-            background: rgba(255,255,255,0.02);
-            transition: all 0.15s;
-            cursor: default;
-        }
-
-        .store-item:hover {
-            background: rgba(200,16,46,0.06);
-            border-color: rgba(200,16,46,0.2);
-        }
-
-        .store-num {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--vermelho);
-            min-width: 28px;
-            text-align: center;
-            padding-top: 2px;
-        }
-
-        .store-info { flex: 1; }
-
-        .store-info-top {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 4px;
-        }
-
-        .store-nome {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #fff;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .regiao-badge {
-            font-size: 0.6rem;
-            background: rgba(212,160,23,0.12);
-            border: 1px solid rgba(212,160,23,0.25);
-            color: var(--dourado);
-            padding: 2px 10px;
-            border-radius: 40px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .store-endereco {
-            font-size: 0.73rem;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .store-horario {
-            font-size: 0.68rem;
-            color: #555;
-            margin-top: 3px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .store-horario i { color: var(--vermelho); font-size: 0.6rem; }
-
-        .no-results {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #555;
-        }
-
-        .no-results i { font-size: 2rem; color: #333; margin-bottom: 12px; display: block; }
-
-        /* ───── RESPONSIVE ───── */
         @media (max-width: 480px) {
             .logo-text-block h1 { font-size: 1.9rem; }
+            .logo-img { width: 50px; height: 50px; }
             .card { padding: 1.1rem; }
-            .whats-grid { grid-template-columns: 1fr; }
             .modal-panel { border-radius: 24px 24px 0 0; }
         }
     </style>
@@ -635,37 +618,12 @@
 
 <div class="linktree-container">
 
-    <!-- ───── HEADER ───── -->
+    <!-- ───── HEADER COM LOGO ───── -->
     <div class="brand-header">
         <div class="logo-wrap">
             <div class="logo-img-area">
-                <!-- Logo visual da Chico Grill com chama SVG e texto -->
-                <div class="flame-logo">
-                    <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Chama principal -->
-                        <path d="M28 6C28 6 18 18 18 28C18 33.5 21.5 38 28 40C34.5 38 38 33.5 38 28C38 18 28 6 28 6Z" fill="url(#fire1)"/>
-                        <!-- Chama interna -->
-                        <path d="M28 16C28 16 22 24 22 30C22 33.3 24.7 36 28 36C31.3 36 34 33.3 34 30C34 24 28 16 28 16Z" fill="url(#fire2)"/>
-                        <!-- Faísca esquerda -->
-                        <circle cx="18" cy="26" r="2.5" fill="#d4a017" opacity="0.7"/>
-                        <!-- Faísca direita -->
-                        <circle cx="38" cy="22" r="2" fill="#f0c040" opacity="0.6"/>
-                        <!-- Base grill -->
-                        <rect x="16" y="40" width="24" height="4" rx="2" fill="#c8102e"/>
-                        <rect x="20" y="44" width="4" height="6" rx="1" fill="#9e0c24"/>
-                        <rect x="32" y="44" width="4" height="6" rx="1" fill="#9e0c24"/>
-                        <defs>
-                            <linearGradient id="fire1" x1="28" y1="6" x2="28" y2="40" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#f0c040"/>
-                                <stop offset="50%" stop-color="#e85c2a"/>
-                                <stop offset="100%" stop-color="#c8102e"/>
-                            </linearGradient>
-                            <linearGradient id="fire2" x1="28" y1="16" x2="28" y2="36" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fff8e0"/>
-                                <stop offset="100%" stop-color="#f0c040"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                <div class="logo-img">
+                    <img src="image.png" alt="Chico Grill Logo">
                 </div>
                 <div class="logo-text-block">
                     <h1>CHICO GRILL</h1>
@@ -704,7 +662,7 @@
     </div>
 
     <!-- ───── BOTÃO MODAL LOJAS ───── -->
-    <button class="btn-stores-modal" id="openModal">
+    <button class="btn-stores-modal" id="openStoresModal">
         <div class="left">
             <i class="fas fa-store"></i>
             <span>Encontre uma unidade</span>
@@ -713,21 +671,30 @@
         <i class="fas fa-chevron-right"></i>
     </button>
 
-    <!-- ───── WHATSAPP ───── -->
-    <div class="card">
-        <div class="card-title">
+    <!-- ───── BOTÃO MODAL WHATSAPP ───── -->
+    <button class="btn-whats-modal" id="openWhatsModal">
+        <div class="left">
             <i class="fab fa-whatsapp"></i>
             <span>Peça pelo WhatsApp</span>
+            <span class="badge">todas as lojas</span>
         </div>
-        <div id="whatsDynamic"></div>
-        <div style="font-size: 0.68rem; margin-top: 12px; text-align: center; color: #555;">
-            <i class="fas fa-motorcycle" style="color:var(--vermelho);"></i> delivery e retirada · atendimento rápido
-        </div>
-    </div>
+        <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- ───── SITES ───── -->
+    <a href="https://chico-grill.vercel.app" target="_blank" class="btn-site">
+        <span><i class="fas fa-globe" style="color:var(--laranja);margin-right:8px;"></i> Site oficial</span>
+        <span class="site-badge">chico-grill</span>
+    </a>
+
+    <a href="https://chico-grill-delivery.onrender.com" target="_blank" class="btn-site">
+        <span><i class="fas fa-motorcycle" style="color:var(--laranja);margin-right:8px;"></i> Delivery Online</span>
+        <span class="site-badge">peça já</span>
+    </a>
 
     <!-- ───── IFOOD ───── -->
     <a href="https://www.ifood.com.br/busca?q=chico%20grill" target="_blank" class="btn-order">
-        <span><i class="fas fa-shopping-bag" style="color:var(--dourado);margin-right:8px;"></i> Peça pelo iFood</span>
+        <span><i class="fas fa-shopping-bag" style="color:var(--laranja);margin-right:8px;"></i> Peça pelo iFood</span>
         <span class="ifood-badge">iFood</span>
     </a>
 
@@ -739,27 +706,24 @@
 
 
 <!-- ═══════════════════════════════════════
-     MODAL DE UNIDADES
+     MODAL DE UNIDADES (LOJAS)
 ═══════════════════════════════════════ -->
-<div class="modal-overlay" id="modalOverlay">
+<div class="modal-overlay" id="storesModalOverlay">
     <div class="modal-panel">
         <div class="modal-handle"></div>
-
         <div class="modal-header">
             <div class="modal-title-row">
                 <div class="modal-title">
                     <i class="fas fa-map-marker-alt"></i>
                     Nossas Unidades
                 </div>
-                <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+                <button class="modal-close close-stores-modal"><i class="fas fa-times"></i></button>
             </div>
-
             <div class="search-wrap">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="modal-search" id="searchInput" placeholder="Buscar por bairro ou região...">
+                <input type="text" class="modal-search" id="storesSearch" placeholder="Buscar por bairro ou região...">
             </div>
-
-            <div class="filter-tabs">
+            <div class="filter-tabs" id="storesFilters">
                 <button class="filter-tab active" data-filter="todas">Todas</button>
                 <button class="filter-tab" data-filter="Zona Sul">Zona Sul</button>
                 <button class="filter-tab" data-filter="Zona Oeste">Zona Oeste</button>
@@ -769,14 +733,38 @@
                 <button class="filter-tab" data-filter="Centro">Centro/Financeiro</button>
             </div>
         </div>
-
         <div class="modal-body">
-            <div class="modal-count" id="modalCount"></div>
+            <div class="modal-count" id="storesCount"></div>
             <div id="storesList"></div>
         </div>
     </div>
 </div>
 
+<!-- ═══════════════════════════════════════
+     MODAL DE WHATSAPP (CONTATOS DAS LOJAS)
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="whatsModalOverlay">
+    <div class="modal-panel">
+        <div class="modal-handle"></div>
+        <div class="modal-header">
+            <div class="modal-title-row">
+                <div class="modal-title">
+                    <i class="fab fa-whatsapp"></i>
+                    Peça pelo WhatsApp
+                </div>
+                <button class="modal-close close-whats-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-wrap">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="modal-search" id="whatsSearch" placeholder="Buscar por unidade...">
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-count" id="whatsCount"></div>
+            <div id="whatsList"></div>
+        </div>
+    </div>
+</div>
 
 <script>
     const lojas = [
@@ -823,41 +811,24 @@
     ];
 
     const contatosWhats = [
-        "1 MOEMA", "2 VILA OLIMPIA", "3 FARIA LIMA", "4 AV ATLANTICA", "5 PARQUES DAS ÁRVORES",
-        "6 MIGUEL ESTEFANO", "7 JABAQUARA", "8 JARDIM MIRNA", "9 CUPECE", "10 CAPÃO",
-        "11 VILA DA SAUDE", "12 JAGUARÉ", "13 HELIÓPOLIS", "14 PINHEIROS", "15 TABOÃO DA SERRA",
-        "16 OURIVES", "17 MEGA LOJA", "18 SANTO AMARO", "19 JD PRIMAVERA", "20 JURUBATUBA",
-        "21 DIADEMA CAMPANÁRIO", "22 JARDIM ELIANA", "23 TABOÃO 2", "24 EMBU GUAÇU", "25 RAPOSO",
-        "26 SÃO BERNARDO", "27 PIRACICABA", "28 CASA VERDE", "29 OSASCO", "30 ANACÉ",
-        "31 GRIMALDI", "32 CENTENÁRIO", "33 M'BOI MIRIM", "34 VILA FORMOSA", "35 ARARIBA",
-        "36 JARDIM SÃO LUIS", "37 SABARÁ", "38 SANTO EDUARDO", "39 ITAPECERICA", "40 VILA NHOCUNE"
+        "MOEMA", "VILA OLIMPIA", "FARIA LIMA", "AV ATLANTICA", "PARQUES DAS ÁRVORES",
+        "MIGUEL ESTEFANO", "JABAQUARA", "JARDIM MIRNA", "CUPECE", "CAPÃO",
+        "VILA DA SAUDE", "JAGUARÉ", "HELIÓPOLIS", "PINHEIROS", "TABOÃO DA SERRA",
+        "OURIVES", "MEGA LOJA", "SANTO AMARO", "JD PRIMAVERA", "JURUBATUBA",
+        "DIADEMA CAMPANÁRIO", "JARDIM ELIANA", "TABOÃO 2", "EMBU GUAÇU", "RAPOSO",
+        "SÃO BERNARDO", "PIRACICABA", "CASA VERDE", "OSASCO", "ANACÉ",
+        "GRIMALDI", "CENTENÁRIO", "M'BOI MIRIM", "VILA FORMOSA", "ARARIBA",
+        "JARDIM SÃO LUIS", "SABARÁ", "SANTO EDUARDO", "ITAPECERICA", "VILA NHOCUNE"
     ];
 
-    /* ─── WHATSAPP ─── */
-    function renderWhats() {
-        const div = document.getElementById('whatsDynamic');
-        if (!div) return;
-        const grid = document.createElement('div');
-        grid.className = 'whats-grid';
-        contatosWhats.forEach(c => {
-            const nome = c.replace(/^\d+\s*/, '');
-            const link = `https://wa.me/5511915925731?text=Oi!%20Quero%20pedir%20na%20unidade%20${encodeURIComponent(nome)}%20-%20Chico%20Grill`;
-            const a = document.createElement('a');
-            a.href = link; a.target = '_blank'; a.className = 'whats-item';
-            a.innerHTML = `<div class="whats-left"><i class="fab fa-whatsapp"></i><span>${c}</span></div><div class="whats-badge">pedir</div>`;
-            grid.appendChild(a);
-        });
-        div.appendChild(grid);
-    }
+    /* ─── MODAL UNIDADES (STORES) ─── */
+    let storesFiltroAtivo = 'todas';
+    let storesBuscaAtiva = '';
 
-    /* ─── MODAL ─── */
-    let filtroAtivo = 'todas';
-    let buscaAtiva = '';
-
-    function getLojasFiltradas() {
+    function getStoresFiltradas() {
         return lojas.filter(l => {
-            const matchRegiao = filtroAtivo === 'todas' || l.regiao === filtroAtivo;
-            const q = buscaAtiva.toLowerCase();
+            const matchRegiao = storesFiltroAtivo === 'todas' || l.regiao === storesFiltroAtivo;
+            const q = storesBuscaAtiva.toLowerCase();
             const matchBusca = !q ||
                 l.nome.toLowerCase().includes(q) ||
                 l.endereco.toLowerCase().includes(q) ||
@@ -866,11 +837,11 @@
         });
     }
 
-    function renderLojas() {
+    function renderStores() {
         const container = document.getElementById('storesList');
-        const countEl = document.getElementById('modalCount');
+        const countEl = document.getElementById('storesCount');
         if (!container) return;
-        const lista = getLojasFiltradas();
+        const lista = getStoresFiltradas();
         countEl.innerHTML = `<span>${lista.length}</span> unidade${lista.length !== 1 ? 's' : ''} encontrada${lista.length !== 1 ? 's' : ''}`;
         if (lista.length === 0) {
             container.innerHTML = `<div class="no-results"><i class="fas fa-search"></i>Nenhuma unidade encontrada.<br><small style="color:#444;margin-top:6px;display:block;">Tente outra região ou palavra.</small></div>`;
@@ -879,56 +850,115 @@
         container.innerHTML = '';
         lista.forEach(l => {
             const div = document.createElement('div');
-            div.className = 'store-item';
+            div.className = 'item-card';
+            div.style.cursor = 'default';
             div.innerHTML = `
-                <div class="store-num">${l.num}</div>
-                <div class="store-info">
-                    <div class="store-info-top">
-                        <div class="store-nome">${l.nome}</div>
-                        <div class="regiao-badge">${l.regiao}</div>
-                    </div>
-                    <div class="store-endereco"><i class="fas fa-map-marker-alt" style="color:var(--vermelho);margin-right:5px;font-size:0.65rem;"></i>${l.endereco}</div>
-                    <div class="store-horario"><i class="far fa-clock"></i>${l.horario}</div>
+                <div class="item-num">${l.num}</div>
+                <div class="item-info">
+                    <div class="item-name">${l.nome}</div>
+                    <div class="item-detail"><i class="fas fa-map-marker-alt" style="color:var(--laranja);margin-right:5px;font-size:0.65rem;"></i>${l.endereco}</div>
+                    <div class="item-detail"><i class="far fa-clock"></i> ${l.horario}</div>
                 </div>
+                <div class="item-badge">${l.regiao}</div>
             `;
             container.appendChild(div);
         });
     }
 
-    /* ─── EVENTS ─── */
-    document.getElementById('openModal').addEventListener('click', () => {
-        document.getElementById('modalOverlay').classList.add('open');
-        document.body.style.overflow = 'hidden';
-        renderLojas();
-    });
+    /* ─── MODAL WHATSAPP ─── */
+    let whatsBuscaAtiva = '';
 
-    function fecharModal() {
-        document.getElementById('modalOverlay').classList.remove('open');
+    function getWhatsFiltrados() {
+        const q = whatsBuscaAtiva.toLowerCase();
+        if (!q) return contatosWhats.map((nome, idx) => ({ num: idx+1, nome: nome }));
+        return contatosWhats.filter(nome => nome.toLowerCase().includes(q)).map((nome, idx) => ({ num: idx+1, nome: nome }));
+    }
+
+    function renderWhatsModal() {
+        const container = document.getElementById('whatsList');
+        const countEl = document.getElementById('whatsCount');
+        if (!container) return;
+        const lista = getWhatsFiltrados();
+        countEl.innerHTML = `<span>${lista.length}</span> unidade${lista.length !== 1 ? 's' : ''} disponível para WhatsApp`;
+        if (lista.length === 0) {
+            container.innerHTML = `<div class="no-results"><i class="fas fa-search"></i>Nenhuma unidade encontrada.<br><small style="color:#444;margin-top:6px;display:block;">Tente outro nome.</small></div>`;
+            return;
+        }
+        container.innerHTML = '';
+        lista.forEach(item => {
+            const link = `https://wa.me/5511915925731?text=Oi!%20Quero%20pedir%20na%20unidade%20${encodeURIComponent(item.nome)}%20-%20Chico%20Grill`;
+            const a = document.createElement('a');
+            a.href = link;
+            a.target = '_blank';
+            a.className = 'item-card';
+            a.innerHTML = `
+                <div class="item-num">${item.num}</div>
+                <div class="item-info">
+                    <div class="item-name"><i class="fab fa-whatsapp wpp-icon"></i> ${item.nome}</div>
+                    <div class="item-detail">Clique para abrir o WhatsApp e fazer seu pedido</div>
+                </div>
+                <div class="item-badge"><i class="fas fa-arrow-right"></i> pedir</div>
+            `;
+            container.appendChild(a);
+        });
+    }
+
+    /* ─── FUNÇÕES MODAL ─── */
+    function openStoresModal() {
+        document.getElementById('storesModalOverlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        renderStores();
+    }
+
+    function openWhatsModal() {
+        document.getElementById('whatsModalOverlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        renderWhatsModal();
+    }
+
+    function closeStoresModal() {
+        document.getElementById('storesModalOverlay').classList.remove('open');
         document.body.style.overflow = '';
     }
 
-    document.getElementById('closeModal').addEventListener('click', fecharModal);
+    function closeWhatsModal() {
+        document.getElementById('whatsModalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
 
-    document.getElementById('modalOverlay').addEventListener('click', e => {
-        if (e.target === document.getElementById('modalOverlay')) fecharModal();
+    /* ─── EVENT LISTENERS ─── */
+    document.getElementById('openStoresModal').addEventListener('click', openStoresModal);
+    document.getElementById('openWhatsModal').addEventListener('click', openWhatsModal);
+
+    document.querySelectorAll('.close-stores-modal').forEach(btn => btn.addEventListener('click', closeStoresModal));
+    document.querySelectorAll('.close-whats-modal').forEach(btn => btn.addEventListener('click', closeWhatsModal));
+
+    document.getElementById('storesModalOverlay').addEventListener('click', e => {
+        if (e.target === document.getElementById('storesModalOverlay')) closeStoresModal();
+    });
+    document.getElementById('whatsModalOverlay').addEventListener('click', e => {
+        if (e.target === document.getElementById('whatsModalOverlay')) closeWhatsModal();
     });
 
-    document.getElementById('searchInput').addEventListener('input', e => {
-        buscaAtiva = e.target.value;
-        renderLojas();
+    // Stores search e filtros
+    document.getElementById('storesSearch').addEventListener('input', e => {
+        storesBuscaAtiva = e.target.value;
+        renderStores();
     });
-
-    document.querySelectorAll('.filter-tab').forEach(btn => {
+    document.querySelectorAll('#storesFilters .filter-tab').forEach(btn => {
         btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#storesFilters .filter-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            filtroAtivo = btn.dataset.filter;
-            renderLojas();
+            storesFiltroAtivo = btn.dataset.filter;
+            renderStores();
         });
     });
 
-    /* ─── INIT ─── */
-    renderWhats();
+    // WhatsApp search
+    document.getElementById('whatsSearch').addEventListener('input', e => {
+        whatsBuscaAtiva = e.target.value;
+        renderWhatsModal();
+    });
 </script>
 </body>
 </html>
