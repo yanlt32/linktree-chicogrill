@@ -3,461 +3,825 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Chico Grill · Cheddar artesanal | Linktree</title>
-    <!-- Font Awesome 6 (ícones leves) -->
+    <title>Chico Grill · Cheddar artesanal | Links</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Inter + sistema, com peso mais clean -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --preto: #0d0d0d;
+            --vermelho: #c8102e;
+            --vermelho-escuro: #9e0c24;
+            --dourado: #d4a017;
+            --dourado-claro: #f0c040;
+            --cinza-escuro: #1a1a1a;
+            --cinza-medio: #2a2a2a;
+            --cinza-borda: #333;
+            --branco: #f5f0e8;
+            --texto-suave: #aaa;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: #faf8f4;
-            background-image: linear-gradient(145deg, #fefcf7 0%, #f7f3ea 100%);
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: #2b241c;
-            padding: 2rem 1.2rem 3rem;
+            background: var(--preto);
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(200,16,46,0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 100%, rgba(212,160,23,0.1) 0%, transparent 50%);
+            font-family: 'Barlow', sans-serif;
+            color: var(--branco);
+            min-height: 100vh;
+            padding: 2rem 1.2rem 4rem;
         }
 
-        /* container */
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
         .linktree-container {
-            max-width: 680px;
+            max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        /* cabeçalho mais humano, menos produção */
+        /* ───── HEADER / LOGO ───── */
         .brand-header {
             text-align: center;
             margin-bottom: 2rem;
         }
 
-        /* logo com leveza - estilo artesanal */
-        .logo-area {
-            display: flex;
+        .logo-wrap {
+            display: inline-flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 1rem;
         }
 
-        .logo-marca {
+        /* Logo real do site */
+        .logo-img-area {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #ffffffcc;
-            backdrop-filter: blur(2px);
-            padding: 0.5rem 1.4rem;
-            border-radius: 60px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
-            border: 1px solid #e9dfd1;
+            gap: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(200,16,46,0.3);
+            border-radius: 16px;
+            padding: 14px 24px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 40px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
-        .logo-icone {
-            font-size: 2rem;
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+        /* Ícone de chama como substituto visual da logo */
+        .flame-logo {
+            position: relative;
+            width: 56px;
+            height: 56px;
+        }
+        .flame-logo svg {
+            width: 100%;
+            height: 100%;
         }
 
-        .logo-nome h1 {
-            font-size: 1.9rem;
+        .logo-text-block h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.4rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #3a2c1c;
-            margin: 0;
-            line-height: 1.2;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(200,16,46,0.6);
         }
 
-        .logo-nome span {
-            font-size: 0.7rem;
+        .logo-text-block .sub {
+            font-size: 0.65rem;
             font-weight: 500;
-            color: #b48c54;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dourado);
             display: block;
-            letter-spacing: 0.3px;
+            margin-top: 4px;
         }
 
-        .descricao-sutil {
-            margin-top: 0.8rem;
-            font-size: 0.85rem;
-            color: #6f5a3e;
-            background: #ffffffb3;
-            display: inline-block;
-            padding: 0.4rem 1rem;
+        .tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            background: rgba(200,16,46,0.12);
+            border: 1px solid rgba(200,16,46,0.25);
+            padding: 6px 16px;
             border-radius: 40px;
-            backdrop-filter: blur(4px);
-            font-weight: 450;
+            font-size: 0.78rem;
+            color: #ddd;
+            letter-spacing: 0.5px;
         }
 
-        .descricao-sutil i {
-            margin-right: 4px;
-            color: #c68e3a;
+        .tagline .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--vermelho);
+            animation: pulse 2s infinite;
         }
 
-        /* redes sociais discretas */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* ───── SOCIAL ───── */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
-            margin: 1rem 0 0.8rem;
+            gap: 10px;
+            margin: 1.2rem 0 0.4rem;
         }
 
         .social-link {
-            background: #ffffffd9;
-            width: 40px;
-            height: 40px;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8e7a5e;
-            font-size: 1.2rem;
-            transition: all 0.2s;
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 1.1rem;
             text-decoration: none;
-            border: 1px solid #e5daca;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            transition: all 0.2s;
         }
 
         .social-link:hover {
-            background: #ffffff;
-            color: #cb7b2a;
-            border-color: #dbba8c;
+            background: var(--vermelho);
+            border-color: var(--vermelho);
+            color: #fff;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200,16,46,0.4);
         }
 
-        /* cards com vidro suave, nada agressivo */
-        .card {
-            background: rgba(255, 252, 245, 0.85);
-            backdrop-filter: blur(2px);
-            border-radius: 1.6rem;
-            padding: 1.2rem 1.3rem;
-            margin-bottom: 1.4rem;
-            border: 1px solid #eee3d5;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0,0,0,0.02);
-            transition: 0.1s ease;
+        .insta-tag {
+            font-size: 0.7rem;
+            color: var(--texto-suave);
+            letter-spacing: 0.5px;
+            margin-top: 4px;
         }
+
+        /* ───── CARD BASE ───── */
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 1.4rem 1.3rem;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(4px);
+            transition: border-color 0.2s;
+        }
+
+        .card:hover { border-color: rgba(200,16,46,0.2); }
 
         .card-title {
             display: flex;
             align-items: center;
             gap: 10px;
+            font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #5d4632;
-            border-left: 3px solid #d6a15a;
-            padding-left: 12px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dourado);
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
         }
 
-        .card-title i {
-            font-size: 1rem;
-            color: #bd8f4b;
-        }
-
-        /* lista de lojas clean */
-        .stores-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-            max-height: 460px;
-            overflow-y: auto;
-            padding-right: 6px;
-        }
-
-        .stores-list::-webkit-scrollbar {
-            width: 3px;
-        }
-        .stores-list::-webkit-scrollbar-track {
-            background: #ece2d6;
-            border-radius: 10px;
-        }
-        .stores-list::-webkit-scrollbar-thumb {
-            background: #cfb383;
-            border-radius: 10px;
-        }
-
-        .store-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: #ffffffcc;
-            padding: 0.7rem 1rem;
-            border-radius: 1.2rem;
-            border: 1px solid #efe2d4;
-            transition: all 0.15s;
-        }
-
-        .store-card:hover {
-            background: #fffcf7;
-            border-color: #ddcdb7;
-        }
-
-        .store-icon {
-            font-size: 1rem;
-            color: #b57c3a;
-            min-width: 28px;
+        /* ───── APRESENTAÇÃO ───── */
+        .intro-card {
             text-align: center;
-            padding-top: 2px;
         }
 
-        .store-details {
-            flex: 1;
+        .intro-card p {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        .store-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #3f2e1d;
+        .tags-row {
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline;
             gap: 8px;
+            justify-content: center;
         }
 
-        .hour-badge {
-            font-size: 0.65rem;
-            background: #ede3d7;
-            padding: 2px 10px;
-            border-radius: 30px;
+        .tag {
+            background: rgba(200,16,46,0.12);
+            border: 1px solid rgba(200,16,46,0.25);
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.72rem;
+            color: #ddd;
             font-weight: 500;
-            color: #7b5d3c;
         }
 
-        .address-text {
+        /* ───── BOTÃO ABRIR MODAL DE LOJAS ───── */
+        .btn-stores-modal {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, var(--vermelho-escuro), var(--vermelho));
+            border: none;
+            border-radius: 14px;
+            padding: 1.1rem 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            box-shadow: 0 8px 30px rgba(200,16,46,0.35);
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-stores-modal:hover {
+            background: linear-gradient(135deg, var(--vermelho), #e8152f);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(200,16,46,0.5);
+        }
+
+        .btn-stores-modal .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-stores-modal .badge {
+            background: rgba(0,0,0,0.25);
+            border-radius: 8px;
+            padding: 3px 10px;
             font-size: 0.7rem;
-            color: #8f7b64;
-            margin-top: 4px;
-            line-height: 1.3;
+            letter-spacing: 1px;
         }
 
-        /* contatos whatsapp (clean, menos cores fortes) */
+        /* ───── WHATSAPP GRID ───── */
         .whats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 0.7rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
         }
 
         .whats-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #fcf9f3;
-            border: 1px solid #e4d8cb;
-            padding: 0.6rem 0.9rem;
-            border-radius: 60px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 8px 14px;
+            border-radius: 50px;
             text-decoration: none;
-            color: #4e3c28;
-            transition: 0.15s;
+            color: #ddd;
+            transition: all 0.15s;
+            font-size: 0.78rem;
         }
 
         .whats-item:hover {
-            background: #fffdf9;
-            border-color: #ccb690;
+            background: rgba(37,211,102,0.1);
+            border-color: rgba(37,211,102,0.3);
+            color: #fff;
             transform: translateX(2px);
         }
 
         .whats-left {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
+            gap: 8px;
             font-weight: 500;
         }
 
-        .whats-left i {
-            font-size: 1.2rem;
-            color: #4c9e5a;
-        }
+        .whats-left i { color: #25d366; font-size: 1rem; }
 
         .whats-badge {
-            font-size: 0.7rem;
-            background: #e7dfd4;
-            padding: 3px 8px;
-            border-radius: 60px;
-            color: #6e593e;
+            font-size: 0.62rem;
+            background: rgba(37,211,102,0.15);
+            border: 1px solid rgba(37,211,102,0.2);
+            padding: 2px 8px;
+            border-radius: 40px;
+            color: #25d366;
         }
 
-        /* botão pedido clean */
-        .btn-order-light {
+        /* ───── BOTÃO IFOOD ───── */
+        .btn-order {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #ffffffea;
-            border: 1px solid #dfd2c2;
-            border-radius: 60px;
-            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            color: #57412b;
-            transition: 0.15s;
-            margin-top: 0.6rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            color: #f0f0f0;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
         }
 
-        .btn-order-light:hover {
-            background: #ffffff;
-            border-color: #c8b18c;
+        .btn-order:hover {
+            background: rgba(234,67,53,0.1);
+            border-color: rgba(234,67,53,0.3);
             transform: translateY(-1px);
         }
 
-        /* footer suave */
+        .btn-order .ifood-badge {
+            background: #ea4335;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* ───── FOOTER ───── */
         .footer-note {
             text-align: center;
-            font-size: 0.7rem;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            color: #aa987f;
-            border-top: 1px solid #e7ddcf;
+            font-size: 0.68rem;
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            color: #555;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            line-height: 1.8;
         }
 
-        @media (max-width: 550px) {
-            .logo-nome h1 {
-                font-size: 1.5rem;
-            }
-            .card {
-                padding: 1rem;
-            }
-            .whats-grid {
-                grid-template-columns: 1fr;
-            }
+        .footer-note span { color: var(--dourado); font-weight: 500; }
+
+        /* ═══════════════════════════════════════
+           MODAL DE UNIDADES
+        ═══════════════════════════════════════ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 0;
         }
 
-        .insta-handle {
+        .modal-overlay.open {
+            display: flex;
+            animation: fadeOverlay 0.25s ease;
+        }
+
+        @keyframes fadeOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-panel {
+            background: #141414;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 28px 28px 0 0;
+            width: 100%;
+            max-width: 640px;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s cubic-bezier(0.16,1,0.3,1);
+            overflow: hidden;
+            box-shadow: 0 -20px 80px rgba(0,0,0,0.8);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-handle {
+            width: 40px;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 4px;
+            margin: 14px auto 0;
+            flex-shrink: 0;
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            flex-shrink: 0;
+        }
+
+        .modal-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-title i { color: var(--vermelho); }
+
+        .modal-close {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: #aaa;
+            font-size: 0.9rem;
+            transition: all 0.15s;
+        }
+
+        .modal-close:hover { background: var(--vermelho); color: #fff; border-color: var(--vermelho); }
+
+        /* Search + Filtros */
+        .search-wrap {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+
+        .modal-search {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 10px 14px 10px 38px;
+            color: #fff;
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .modal-search::placeholder { color: #555; }
+        .modal-search:focus { border-color: rgba(200,16,46,0.5); }
+
+        .filter-tabs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .filter-tabs::-webkit-scrollbar { display: none; }
+
+        .filter-tab {
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 40px;
+            padding: 5px 14px;
+            font-size: 0.72rem;
             font-weight: 500;
-            background: #f2ebe1;
-            padding: 0.1rem 0.4rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+            font-family: 'Barlow', sans-serif;
+        }
+
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: var(--vermelho);
+            border-color: var(--vermelho);
+            color: #fff;
+        }
+
+        /* Lista de lojas no modal */
+        .modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 1.5rem 2rem;
+        }
+
+        .modal-body::-webkit-scrollbar { width: 3px; }
+        .modal-body::-webkit-scrollbar-track { background: #1a1a1a; }
+        .modal-body::-webkit-scrollbar-thumb { background: var(--vermelho); border-radius: 10px; }
+
+        .modal-count {
+            font-size: 0.72rem;
+            color: #555;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-count span { color: var(--dourado); font-weight: 600; }
+
+        .store-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 8px;
+            background: rgba(255,255,255,0.02);
+            transition: all 0.15s;
+            cursor: default;
+        }
+
+        .store-item:hover {
+            background: rgba(200,16,46,0.06);
+            border-color: rgba(200,16,46,0.2);
+        }
+
+        .store-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--vermelho);
+            min-width: 28px;
+            text-align: center;
+            padding-top: 2px;
+        }
+
+        .store-info { flex: 1; }
+
+        .store-info-top {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .store-nome {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .regiao-badge {
+            font-size: 0.6rem;
+            background: rgba(212,160,23,0.12);
+            border: 1px solid rgba(212,160,23,0.25);
+            color: var(--dourado);
+            padding: 2px 10px;
+            border-radius: 40px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .store-endereco {
+            font-size: 0.73rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .store-horario {
+            font-size: 0.68rem;
+            color: #555;
+            margin-top: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .store-horario i { color: var(--vermelho); font-size: 0.6rem; }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #555;
+        }
+
+        .no-results i { font-size: 2rem; color: #333; margin-bottom: 12px; display: block; }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 480px) {
+            .logo-text-block h1 { font-size: 1.9rem; }
+            .card { padding: 1.1rem; }
+            .whats-grid { grid-template-columns: 1fr; }
+            .modal-panel { border-radius: 24px 24px 0 0; }
         }
     </style>
 </head>
 <body>
+
 <div class="linktree-container">
-    <!-- Cabeçalho com cara mais artesanal, menos produção e sem "cara de IA" -->
+
+    <!-- ───── HEADER ───── -->
     <div class="brand-header">
-        <div class="logo-area">
-            <div class="logo-marca">
-                <div class="logo-icone">🥩🍔</div>
-                <div class="logo-nome">
-                    <h1>Chico Grill</h1>
-                    <span>desde 2018 · sabor de verdade</span>
+        <div class="logo-wrap">
+            <div class="logo-img-area">
+                <!-- Logo visual da Chico Grill com chama SVG e texto -->
+                <div class="flame-logo">
+                    <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Chama principal -->
+                        <path d="M28 6C28 6 18 18 18 28C18 33.5 21.5 38 28 40C34.5 38 38 33.5 38 28C38 18 28 6 28 6Z" fill="url(#fire1)"/>
+                        <!-- Chama interna -->
+                        <path d="M28 16C28 16 22 24 22 30C22 33.3 24.7 36 28 36C31.3 36 34 33.3 34 30C34 24 28 16 28 16Z" fill="url(#fire2)"/>
+                        <!-- Faísca esquerda -->
+                        <circle cx="18" cy="26" r="2.5" fill="#d4a017" opacity="0.7"/>
+                        <!-- Faísca direita -->
+                        <circle cx="38" cy="22" r="2" fill="#f0c040" opacity="0.6"/>
+                        <!-- Base grill -->
+                        <rect x="16" y="40" width="24" height="4" rx="2" fill="#c8102e"/>
+                        <rect x="20" y="44" width="4" height="6" rx="1" fill="#9e0c24"/>
+                        <rect x="32" y="44" width="4" height="6" rx="1" fill="#9e0c24"/>
+                        <defs>
+                            <linearGradient id="fire1" x1="28" y1="6" x2="28" y2="40" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#f0c040"/>
+                                <stop offset="50%" stop-color="#e85c2a"/>
+                                <stop offset="100%" stop-color="#c8102e"/>
+                            </linearGradient>
+                            <linearGradient id="fire2" x1="28" y1="16" x2="28" y2="36" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fff8e0"/>
+                                <stop offset="100%" stop-color="#f0c040"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="logo-text-block">
+                    <h1>CHICO GRILL</h1>
+                    <span class="sub">desde 2018 · São Paulo</span>
                 </div>
             </div>
-            <div class="descricao-sutil">
-                <i class="fas fa-cheese"></i> cheddar artesanal · espetos no ponto
+            <div class="tagline">
+                <span class="dot"></span>
+                cheddar artesanal · espetos no ponto · 40+ unidades
             </div>
         </div>
-        
-        <!-- redes com Instagram oficial -->
+
         <div class="social-links">
             <a href="https://instagram.com/chicogrill__01" target="_blank" class="social-link" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" target="_blank" class="social-link" aria-label="WhatsApp Central">
+            <a href="https://api.whatsapp.com/send/?phone=5511915925731" target="_blank" class="social-link" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="#" target="_blank" class="social-link" aria-label="Cardápio online">
+            <a href="https://www.ifood.com.br/busca?q=chico%20grill" target="_blank" class="social-link" aria-label="iFood">
                 <i class="fas fa-utensils"></i>
             </a>
         </div>
-        <div style="font-size: 0.7rem; color: #ad987c; margin-top: 6px;">
-            <span class="insta-handle"><i class="fab fa-instagram"></i> @chicogrill__01</span>
+        <div class="insta-tag"><i class="fab fa-instagram"></i> @chicogrill__01</div>
+    </div>
+
+    <!-- ───── INTRO ───── -->
+    <div class="card intro-card">
+        <p>Burgers artesanais, espetinhos suculentos e o <strong style="color:#fff;">cheddar que virou febre</strong> em São Paulo. Cada pedaço feito na hora, com carne selecionada e sabor de verdade.</p>
+        <div class="tags-row">
+            <span class="tag">🍖 Espetos</span>
+            <span class="tag">🧀 Cheddar premium</span>
+            <span class="tag">🍔 Burger artesanal</span>
+            <span class="tag">🏆 Desde 2018</span>
         </div>
     </div>
 
-    <!-- Mini apresentação / menu resumido -->
-    <div class="card" style="text-align: center;">
-        <i class="fas fa-fire" style="color: #c1873a; opacity: 0.7; margin-bottom: 8px; display: block;"></i>
-        <p style="font-weight: 450; font-size: 0.9rem; margin-bottom: 8px;">Burgers artesanais, espetinhos suculentos e o <strong>cheddar que virou febre</strong> em São Paulo.</p>
-        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 6px;">
-            <span style="background: #ece2d6; padding: 3px 12px; border-radius: 40px; font-size: 0.7rem;">🍖 Espetos</span>
-            <span style="background: #ece2d6; padding: 3px 12px; border-radius: 40px; font-size: 0.7rem;">🧀 Cheddar premium</span>
-            <span style="background: #ece2d6; padding: 3px 12px; border-radius: 40px; font-size: 0.7rem;">🍔 Burger artesanal</span>
+    <!-- ───── BOTÃO MODAL LOJAS ───── -->
+    <button class="btn-stores-modal" id="openModal">
+        <div class="left">
+            <i class="fas fa-store"></i>
+            <span>Encontre uma unidade</span>
+            <span class="badge">40+ lojas</span>
         </div>
-    </div>
+        <i class="fas fa-chevron-right"></i>
+    </button>
 
-    <!-- Todas as 40+ lojas -->
+    <!-- ───── WHATSAPP ───── -->
     <div class="card">
         <div class="card-title">
-            <i class="fas fa-store"></i> <span>nossos endereços · mais de 40 unidades</span>
-        </div>
-        <div class="stores-list" id="storesList"></div>
-        <div style="font-size: 0.65rem; text-align: center; margin-top: 12px; color: #b19876;">
-            <i class="far fa-clock"></i> horários variam por unidade · confira via whatsapp
-        </div>
-    </div>
-
-    <!-- Contatos WhatsApp organizado -->
-    <div class="card">
-        <div class="card-title">
-            <i class="fab fa-whatsapp"></i> <span>peça direto pelo WhatsApp</span>
+            <i class="fab fa-whatsapp"></i>
+            <span>Peça pelo WhatsApp</span>
         </div>
         <div id="whatsDynamic"></div>
-        <div style="font-size: 0.7rem; margin-top: 12px; text-align: center; color: #998f7a;">
-            <i class="fas fa-motorcycle"></i> delivery e retirada · atendimento rápido
+        <div style="font-size: 0.68rem; margin-top: 12px; text-align: center; color: #555;">
+            <i class="fas fa-motorcycle" style="color:var(--vermelho);"></i> delivery e retirada · atendimento rápido
         </div>
     </div>
 
-    <!-- Botão principal pedido online -->
-    <a href="#" class="btn-order-light" id="orderButton">
-        <span><i class="fas fa-shopping-bag"></i> peça online · ifood / app</span>
-        <i class="fas fa-arrow-right"></i>
+    <!-- ───── IFOOD ───── -->
+    <a href="https://www.ifood.com.br/busca?q=chico%20grill" target="_blank" class="btn-order">
+        <span><i class="fas fa-shopping-bag" style="color:var(--dourado);margin-right:8px;"></i> Peça pelo iFood</span>
+        <span class="ifood-badge">iFood</span>
     </a>
 
     <div class="footer-note">
-        Chico Grill® · Unidades em Moema, Vila Olímpia, Faria Lima, Pinheiros, Santo Amaro, Zona Sul, Leste, Norte e Grande SP.<br>
-        <i class="fab fa-instagram"></i> acompanhe @chicogrill__01 | todas as lojas com horário especial
+        <span>Chico Grill®</span> · Moema, Vila Olímpia, Faria Lima, Pinheiros, Santo Amaro, Zona Sul, Leste, Norte e Grande SP<br>
+        <i class="fab fa-instagram"></i> @chicogrill__01 · todas as lojas com horário especial
     </div>
 </div>
 
+
+<!-- ═══════════════════════════════════════
+     MODAL DE UNIDADES
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-panel">
+        <div class="modal-handle"></div>
+
+        <div class="modal-header">
+            <div class="modal-title-row">
+                <div class="modal-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Nossas Unidades
+                </div>
+                <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="search-wrap">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="modal-search" id="searchInput" placeholder="Buscar por bairro ou região...">
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="todas">Todas</button>
+                <button class="filter-tab" data-filter="Zona Sul">Zona Sul</button>
+                <button class="filter-tab" data-filter="Zona Oeste">Zona Oeste</button>
+                <button class="filter-tab" data-filter="Zona Norte">Zona Norte</button>
+                <button class="filter-tab" data-filter="Zona Leste">Zona Leste</button>
+                <button class="filter-tab" data-filter="Grande SP">Grande SP</button>
+                <button class="filter-tab" data-filter="Centro">Centro/Financeiro</button>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="modal-count" id="modalCount"></div>
+            <div id="storesList"></div>
+        </div>
+    </div>
+</div>
+
+
 <script>
-    // Lista completa e suave (mesmos dados, mas visual mais humano e leve)
-    const lojasSuaves = [
-        { nome: "MOEMA", horario: "seg a dom 20h às 02h", endereco: "Moema · região próxima ao Ibirapuera" },
-        { nome: "VILA OLIMPIA", horario: "seg a sáb 18h às 02h", endereco: "Vila Olímpia · próximo à Berrini" },
-        { nome: "FARIA LIMA", horario: "seg a dom 22h às 02h", endereco: "Faria Lima · coração financeiro" },
-        { nome: "AV ATLANTICA", horario: "consulte", endereco: "Praça Nicolau Aranha Pachêco, 112 - Jardim Tres Marias" },
-        { nome: "PARQUE DAS ARVORES", horario: "consulte", endereco: "Parque das Árvores · unidade completa" },
-        { nome: "MIGUEL ESTEFANO", horario: "seg a dom 20h às 02h", endereco: "Miguel Estefano · próximo ao comércio" },
-        { nome: "JABAQUARA", horario: "consulte", endereco: "Jabaquara · perto do metrô" },
-        { nome: "JARDIM MIRNA", horario: "consulte", endereco: "Av. Antonio Carlos Benjamin dos Santos, 3168 - Jardim Myrna" },
-        { nome: "CUPECE", horario: "seg a sáb 20h às 02h", endereco: "Cupecê · zona sul tranquila" },
-        { nome: "CAPÃO", horario: "consulte", endereco: "Av. Comendador Sant'Anna, 1099 - Capão Redondo" },
-        { nome: "VILA DA SAUDE", horario: "consulte", endereco: "Av. Prof. Abraão de Morais, 1313 - Vila da Saúde" },
-        { nome: "JAGUARÉ", horario: "consulte", endereco: "Jaguaré · próximo USP" },
-        { nome: "HELIÓPOLIS", horario: "seg a sáb 20h às 02h", endereco: "Heliópolis · rua principal" },
-        { nome: "PINHEIROS", horario: "ter a dom 19h às 01h", endereco: "Pinheiros · perto do metrô Fradique" },
-        { nome: "TABOÃO DA SERRA", horario: "consulte", endereco: "Estrada K, 777 - Taboão Centro" },
-        { nome: "OURIVES", horario: "seg a sáb 20h às 02h", endereco: "Ourives · unidade charmosa" },
-        { nome: "MEGA LOJA", horario: "18h às 02h", endereco: "Mega unidade, estacionamento amplo" },
-        { nome: "SANTO AMARO", horario: "consulte", endereco: "Santo Amaro · Av. Adolfo Pinheiro" },
-        { nome: "JARDIM PRIMAVERA", horario: "consulte", endereco: "Jardim Primavera · Zona Sul" },
-        { nome: "JURUBATUBA", horario: "consulte", endereco: "Jurubatuba · região de Interlagos" },
-        { nome: "DIADEMA CAMPANARIO", horario: "consulte", endereco: "Diadema · Campanário, Av. Piraporinha" },
-        { nome: "JARDIM ELIANA", horario: "consulte", endereco: "Av. Dona Belmira Marin, 6004 - Jardim Shangrilá" },
-        { nome: "TABOÃO 2", horario: "consulte", endereco: "Taboão da Serra · unidade 2" },
-        { nome: "RAPOSO", horario: "consulte", endereco: "Raposo Tavares · shopping região" },
-        { nome: "SÃO BERNARDO", horario: "seg a sáb 20h às 02h", endereco: "São Bernardo do Campo · Av. Kennedy" },
-        { nome: "PIRACICABA", horario: "consulte", endereco: "Piracicaba · interior" },
-        { nome: "CASA VERDE / ZN", horario: "consulte", endereco: "Casa Verde, Zona Norte" },
-        { nome: "OSASCO", horario: "consulte", endereco: "Osasco · centro" },
-        { nome: "ANACÉ", horario: "consulte", endereco: "Anacé · região Sapopemba" },
-        { nome: "GRIMALDI", horario: "consulte", endereco: "Grimaldi · Av. Grimaldi" },
-        { nome: "CENTENARIO", horario: "consulte", endereco: "Centenário · Zona Leste" },
-        { nome: "M'BOI MIRIM", horario: "consulte", endereco: "M'Boi Mirim · R. da Represa" },
-        { nome: "VILA FORMOSA", horario: "consulte", endereco: "Vila Formosa" },
-        { nome: "ARARIBÁ", horario: "consulte", endereco: "Araribá · Zona Sul" },
-        { nome: "JARDIM SÃO LUIS", horario: "consulte", endereco: "Jardim São Luis, Av. Guarapiranga" },
-        { nome: "ALVARENGA", horario: "consulte", endereco: "Alvarenga" },
-        { nome: "SABARÁ", horario: "consulte", endereco: "Sabará · unidade" },
-        { nome: "SANTO EDUARDO / LESTE", horario: "consulte", endereco: "Santo Eduardo · Zona Leste" },
-        { nome: "ITAPECERICA DA SERRA", horario: "consulte", endereco: "R. Vítor Manzini, 144 - Centro, Itapecerica" },
-        { nome: "VILA NHOCUNE", horario: "consulte", endereco: "Av. Aldeia Manuel Antônio, 45 - Vila Nhocuné" }
+    const lojas = [
+        { num: 1,  nome: "MOEMA",               regiao: "Zona Sul",       endereco: "Região de Moema, próximo ao Ibirapuera",                    horario: "Seg a Dom · 20h às 02h" },
+        { num: 2,  nome: "VILA OLÍMPIA",         regiao: "Zona Oeste",     endereco: "Vila Olímpia · próximo à Berrini",                          horario: "Seg a Sáb · 18h às 02h" },
+        { num: 3,  nome: "FARIA LIMA",           regiao: "Centro",         endereco: "Faria Lima · coração financeiro de SP",                     horario: "Seg a Dom · 22h às 02h" },
+        { num: 4,  nome: "AV. ATLÂNTICA",        regiao: "Zona Sul",       endereco: "Praça Nicolau Aranha Pachêco, 112 - Jardim Três Marias",    horario: "consultar unidade" },
+        { num: 5,  nome: "PARQUE DAS ÁRVORES",   regiao: "Zona Sul",       endereco: "Parque das Árvores · unidade completa",                     horario: "consultar unidade" },
+        { num: 6,  nome: "MIGUEL ESTEFANO",      regiao: "Zona Sul",       endereco: "Miguel Estefano · próximo ao comércio local",               horario: "Seg a Dom · 20h às 02h" },
+        { num: 7,  nome: "JABAQUARA",            regiao: "Zona Sul",       endereco: "Jabaquara · perto do metrô",                                horario: "consultar unidade" },
+        { num: 8,  nome: "JARDIM MIRNA",         regiao: "Zona Sul",       endereco: "Av. Antonio Carlos Benjamin dos Santos, 3168 - Jd. Myrna", horario: "consultar unidade" },
+        { num: 9,  nome: "CUPECÊ",               regiao: "Zona Sul",       endereco: "Cupecê · zona sul tranquila",                               horario: "Seg a Sáb · 20h às 02h" },
+        { num: 10, nome: "CAPÃO REDONDO",        regiao: "Zona Sul",       endereco: "Av. Comendador Sant'Anna, 1099 - Capão Redondo",            horario: "consultar unidade" },
+        { num: 11, nome: "VILA DA SAÚDE",        regiao: "Zona Sul",       endereco: "Av. Prof. Abraão de Morais, 1313 - Vila da Saúde",          horario: "consultar unidade" },
+        { num: 12, nome: "JAGUARÉ",              regiao: "Zona Oeste",     endereco: "Jaguaré · próximo à USP",                                   horario: "consultar unidade" },
+        { num: 13, nome: "HELIÓPOLIS",           regiao: "Zona Leste",     endereco: "Heliópolis · rua principal",                                horario: "Seg a Sáb · 20h às 02h" },
+        { num: 14, nome: "PINHEIROS",            regiao: "Zona Oeste",     endereco: "Pinheiros · perto do metrô Fradique",                       horario: "Ter a Dom · 19h às 01h" },
+        { num: 15, nome: "TABOÃO DA SERRA",      regiao: "Grande SP",      endereco: "Estrada K, 777 - Taboão Centro",                            horario: "consultar unidade" },
+        { num: 16, nome: "OURIVES",              regiao: "Zona Sul",       endereco: "Ourives · unidade charmosa",                                horario: "Seg a Sáb · 20h às 02h" },
+        { num: 17, nome: "MEGA LOJA",            regiao: "Zona Sul",       endereco: "Mega unidade com estacionamento amplo",                     horario: "18h às 02h" },
+        { num: 18, nome: "SANTO AMARO",          regiao: "Zona Sul",       endereco: "Santo Amaro · Av. Adolfo Pinheiro",                         horario: "consultar unidade" },
+        { num: 19, nome: "JARDIM PRIMAVERA",     regiao: "Zona Sul",       endereco: "Jardim Primavera · Zona Sul de SP",                         horario: "consultar unidade" },
+        { num: 20, nome: "JURUBATUBA",           regiao: "Zona Sul",       endereco: "Jurubatuba · região de Interlagos",                         horario: "consultar unidade" },
+        { num: 21, nome: "DIADEMA CAMPANÁRIO",   regiao: "Grande SP",      endereco: "Diadema · Campanário, Av. Piraporinha",                     horario: "consultar unidade" },
+        { num: 22, nome: "JARDIM ELIANA",        regiao: "Grande SP",      endereco: "Av. Dona Belmira Marin, 6004 - Jardim Shangrilá",           horario: "consultar unidade" },
+        { num: 23, nome: "TABOÃO 2",             regiao: "Grande SP",      endereco: "Taboão da Serra · segunda unidade",                         horario: "consultar unidade" },
+        { num: 24, nome: "EMBU GUAÇU",           regiao: "Grande SP",      endereco: "Embu Guaçu · Região Metropolitana",                         horario: "consultar unidade" },
+        { num: 25, nome: "RAPOSO",               regiao: "Zona Oeste",     endereco: "Raposo Tavares · shopping da região",                       horario: "consultar unidade" },
+        { num: 26, nome: "SÃO BERNARDO",         regiao: "Grande SP",      endereco: "São Bernardo do Campo · Av. Kennedy",                       horario: "Seg a Sáb · 20h às 02h" },
+        { num: 27, nome: "PIRACICABA",           regiao: "Grande SP",      endereco: "Piracicaba · interior de SP",                               horario: "consultar unidade" },
+        { num: 28, nome: "CASA VERDE",           regiao: "Zona Norte",     endereco: "Casa Verde · Zona Norte de SP",                             horario: "consultar unidade" },
+        { num: 29, nome: "OSASCO",               regiao: "Grande SP",      endereco: "Osasco · centro da cidade",                                 horario: "consultar unidade" },
+        { num: 30, nome: "ANACÉ",                regiao: "Zona Leste",     endereco: "Anacé · região Sapopemba",                                  horario: "consultar unidade" },
+        { num: 31, nome: "GRIMALDI",             regiao: "Zona Leste",     endereco: "Av. Grimaldi · Zona Leste",                                 horario: "consultar unidade" },
+        { num: 32, nome: "CENTENÁRIO",           regiao: "Zona Leste",     endereco: "Centenário · Zona Leste de SP",                             horario: "consultar unidade" },
+        { num: 33, nome: "M'BOI MIRIM",          regiao: "Zona Sul",       endereco: "M'Boi Mirim · R. da Represa",                              horario: "consultar unidade" },
+        { num: 34, nome: "VILA FORMOSA",         regiao: "Zona Leste",     endereco: "Vila Formosa · Zona Leste",                                 horario: "consultar unidade" },
+        { num: 35, nome: "ARARIBÁ",              regiao: "Zona Sul",       endereco: "Araribá · Zona Sul de SP",                                  horario: "consultar unidade" },
+        { num: 36, nome: "JARDIM SÃO LUÍS",      regiao: "Zona Sul",       endereco: "Jardim São Luís · Av. Guarapiranga",                        horario: "consultar unidade" },
+        { num: 37, nome: "SABARÁ",               regiao: "Zona Leste",     endereco: "Sabará · Zona Leste de SP",                                 horario: "consultar unidade" },
+        { num: 38, nome: "SANTO EDUARDO",        regiao: "Zona Leste",     endereco: "Santo Eduardo · Zona Leste de SP",                          horario: "consultar unidade" },
+        { num: 39, nome: "ITAPECERICA DA SERRA", regiao: "Grande SP",      endereco: "R. Vítor Manzini, 144 - Centro, Itapecerica da Serra",      horario: "consultar unidade" },
+        { num: 40, nome: "VILA NHOCUNÉ",         regiao: "Zona Leste",     endereco: "Av. Aldeia Manuel Antônio, 45 - Vila Nhocuné",              horario: "consultar unidade" }
     ];
 
-    // Lista de contatos whatsApp (informacoes comerciais)
     const contatosWhats = [
         "1 MOEMA", "2 VILA OLIMPIA", "3 FARIA LIMA", "4 AV ATLANTICA", "5 PARQUES DAS ÁRVORES",
         "6 MIGUEL ESTEFANO", "7 JABAQUARA", "8 JARDIM MIRNA", "9 CUPECE", "10 CAPÃO",
@@ -469,61 +833,102 @@
         "36 JARDIM SÃO LUIS", "37 SABARÁ", "38 SANTO EDUARDO", "39 ITAPECERICA", "40 VILA NHOCUNE"
     ];
 
-    function renderLojas() {
-        const container = document.getElementById('storesList');
-        if(!container) return;
-        container.innerHTML = '';
-        lojasSuaves.forEach(loja => {
-            const item = document.createElement('div');
-            item.className = 'store-card';
-            item.innerHTML = `
-                <div class="store-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="store-details">
-                    <div class="store-name">
-                        ${loja.nome}
-                        ${loja.horario.includes('seg') || loja.horario.includes('dom') ? `<span class="hour-badge"><i class="far fa-clock"></i> ${loja.horario}</span>` : `<span class="hour-badge">horário local</span>`}
-                    </div>
-                    <div class="address-text"><i class="fas fa-location-dot"></i> ${loja.endereco}</div>
-                </div>
-            `;
-            container.appendChild(item);
-        });
-    }
-
+    /* ─── WHATSAPP ─── */
     function renderWhats() {
-        const whatsDiv = document.getElementById('whatsDynamic');
-        if(!whatsDiv) return;
+        const div = document.getElementById('whatsDynamic');
+        if (!div) return;
         const grid = document.createElement('div');
         grid.className = 'whats-grid';
-        contatosWhats.forEach(contato => {
-            const nomeLimpo = contato.replace(/^\d+\s*/, '');
-            const linkW = `https://wa.me/5511999999999?text=Oi!%20Gostaria%20de%20pedir%20na%20${encodeURIComponent(nomeLimpo)}%20-%20Chico%20Grill`;
-            const linkElem = document.createElement('a');
-            linkElem.href = linkW;
-            linkElem.target = '_blank';
-            linkElem.className = 'whats-item';
-            linkElem.innerHTML = `
-                <div class="whats-left">
-                    <i class="fab fa-whatsapp"></i> <span>${contato}</span>
+        contatosWhats.forEach(c => {
+            const nome = c.replace(/^\d+\s*/, '');
+            const link = `https://wa.me/5511915925731?text=Oi!%20Quero%20pedir%20na%20unidade%20${encodeURIComponent(nome)}%20-%20Chico%20Grill`;
+            const a = document.createElement('a');
+            a.href = link; a.target = '_blank'; a.className = 'whats-item';
+            a.innerHTML = `<div class="whats-left"><i class="fab fa-whatsapp"></i><span>${c}</span></div><div class="whats-badge">pedir</div>`;
+            grid.appendChild(a);
+        });
+        div.appendChild(grid);
+    }
+
+    /* ─── MODAL ─── */
+    let filtroAtivo = 'todas';
+    let buscaAtiva = '';
+
+    function getLojasFiltradas() {
+        return lojas.filter(l => {
+            const matchRegiao = filtroAtivo === 'todas' || l.regiao === filtroAtivo;
+            const q = buscaAtiva.toLowerCase();
+            const matchBusca = !q ||
+                l.nome.toLowerCase().includes(q) ||
+                l.endereco.toLowerCase().includes(q) ||
+                l.regiao.toLowerCase().includes(q);
+            return matchRegiao && matchBusca;
+        });
+    }
+
+    function renderLojas() {
+        const container = document.getElementById('storesList');
+        const countEl = document.getElementById('modalCount');
+        if (!container) return;
+        const lista = getLojasFiltradas();
+        countEl.innerHTML = `<span>${lista.length}</span> unidade${lista.length !== 1 ? 's' : ''} encontrada${lista.length !== 1 ? 's' : ''}`;
+        if (lista.length === 0) {
+            container.innerHTML = `<div class="no-results"><i class="fas fa-search"></i>Nenhuma unidade encontrada.<br><small style="color:#444;margin-top:6px;display:block;">Tente outra região ou palavra.</small></div>`;
+            return;
+        }
+        container.innerHTML = '';
+        lista.forEach(l => {
+            const div = document.createElement('div');
+            div.className = 'store-item';
+            div.innerHTML = `
+                <div class="store-num">${l.num}</div>
+                <div class="store-info">
+                    <div class="store-info-top">
+                        <div class="store-nome">${l.nome}</div>
+                        <div class="regiao-badge">${l.regiao}</div>
+                    </div>
+                    <div class="store-endereco"><i class="fas fa-map-marker-alt" style="color:var(--vermelho);margin-right:5px;font-size:0.65rem;"></i>${l.endereco}</div>
+                    <div class="store-horario"><i class="far fa-clock"></i>${l.horario}</div>
                 </div>
-                <div class="whats-badge">pedir</div>
             `;
-            grid.appendChild(linkElem);
+            container.appendChild(div);
         });
-        whatsDiv.innerHTML = '';
-        whatsDiv.appendChild(grid);
     }
 
-    renderLojas();
+    /* ─── EVENTS ─── */
+    document.getElementById('openModal').addEventListener('click', () => {
+        document.getElementById('modalOverlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        renderLojas();
+    });
+
+    function fecharModal() {
+        document.getElementById('modalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('closeModal').addEventListener('click', fecharModal);
+
+    document.getElementById('modalOverlay').addEventListener('click', e => {
+        if (e.target === document.getElementById('modalOverlay')) fecharModal();
+    });
+
+    document.getElementById('searchInput').addEventListener('input', e => {
+        buscaAtiva = e.target.value;
+        renderLojas();
+    });
+
+    document.querySelectorAll('.filter-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtroAtivo = btn.dataset.filter;
+            renderLojas();
+        });
+    });
+
+    /* ─── INIT ─── */
     renderWhats();
-
-    const orderBtn = document.getElementById('orderButton');
-    if(orderBtn) {
-        orderBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.open('https://www.ifood.com.br/busca?q=chico%20grill', '_blank');
-        });
-    }
 </script>
 </body>
 </html>
