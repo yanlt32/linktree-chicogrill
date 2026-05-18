@@ -1,908 +1,1406 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Chico Grill · Cheddar Artesanal | Links</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --preto: #0a0a0a;
-            --preto-escuro: #050505;
-            --laranja: #e67e22;
-            --laranja-escuro: #d35400;
-            --laranja-claro: #f39c12;
-            --dourado: #f39c12;
-            --cinza-escuro: #1a1a1a;
-            --cinza-medio: #2a2a2a;
-            --cinza-borda: #333;
-            --branco: #f5f0e8;
-            --texto-suave: #aaa;
-        }
+      :root {
+        --preto: #0a0a0a;
+        --preto-escuro: #050505;
+        --laranja: #e67e22;
+        --laranja-escuro: #d35400;
+        --laranja-claro: #f39c12;
+        --dourado: #f39c12;
+        --cinza-escuro: #1a1a1a;
+        --cinza-medio: #2a2a2a;
+        --cinza-borda: #333;
+        --branco: #f5f0e8;
+        --texto-suave: #aaa;
+      }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        /* ═══════ SPLASH SCREEN ═══════ */
-        #splash {
-            position: fixed;
-            inset: 0;
-            background: #0a0a0a;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+      /* ═══════ SPLASH SCREEN ═══════ */
+      #splash {
+        position: fixed;
+        inset: 0;
+        background: #0a0a0a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
+      #splash.hide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .splash-logo-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .splash-wordmark {
+        display: flex;
+        align-items: baseline;
+        opacity: 0;
+        animation: splashLogoIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      }
+      .splash-wordmark .w-chico {
+        font-family: "Oswald", sans-serif;
+        font-size: 3.4rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: #ffffff;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .splash-wordmark .w-grill {
+        font-family: "Oswald", sans-serif;
+        font-size: 3.4rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: var(--laranja);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      @keyframes splashLogoIn {
+        from {
+          opacity: 0;
+          transform: scale(0.88) translateY(8px);
         }
-        #splash.hide {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
         }
-        .splash-logo-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+      }
+      .splash-line {
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--laranja-escuro),
+          var(--laranja)
+        );
+        animation: splashLineGrow 0.7s ease 0.9s forwards;
+      }
+      @keyframes splashLineGrow {
+        to {
+          width: 260px;
         }
-        .splash-wordmark {
-            display: flex;
-            align-items: baseline;
-            opacity: 0;
-            animation: splashLogoIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+      }
+      .splash-sub {
+        font-family: "Oswald", sans-serif;
+        font-size: 0.65rem;
+        letter-spacing: 5px;
+        color: #444;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: splashSubIn 0.6s ease 1.4s forwards;
+      }
+      @keyframes splashSubIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
         }
-        .splash-wordmark .w-chico {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.4rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: #ffffff;
-            text-transform: uppercase;
-            line-height: 1;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .splash-wordmark .w-grill {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.4rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: var(--laranja);
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        @keyframes splashLogoIn {
-            from { opacity: 0; transform: scale(0.88) translateY(8px); }
-            to   { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .splash-line {
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--laranja-escuro), var(--laranja));
-            animation: splashLineGrow 0.7s ease 0.9s forwards;
-        }
-        @keyframes splashLineGrow { to { width: 260px; } }
-        .splash-sub {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 5px;
-            color: #444;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: splashSubIn 0.6s ease 1.4s forwards;
-        }
-        @keyframes splashSubIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+      }
 
-        body {
-            background: var(--preto);
-            background-image:
-                radial-gradient(ellipse at 20% 0%, rgba(230,126,34,0.15) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 100%, rgba(243,156,18,0.08) 0%, transparent 50%);
-            font-family: 'Barlow', sans-serif;
-            color: var(--branco);
-            min-height: 100vh;
-            padding: 2rem 1.2rem 4rem;
-        }
+      body {
+        background: var(--preto);
+        background-image:
+          radial-gradient(
+            ellipse at 20% 0%,
+            rgba(230, 126, 34, 0.15) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 80% 100%,
+            rgba(243, 156, 18, 0.08) 0%,
+            transparent 50%
+          );
+        font-family: "Barlow", sans-serif;
+        color: var(--branco);
+        min-height: 100vh;
+        padding: 2rem 1.2rem 4rem;
+      }
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.5;
-        }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+      }
 
-        .linktree-container {
-            max-width: 680px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            animation: pageIn 0.6s ease 2s forwards;
+      .linktree-container {
+        max-width: 680px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        animation: pageIn 0.6s ease 2s forwards;
+      }
+      @keyframes pageIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        @keyframes pageIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        /* ───── HEADER / LOGO ───── */
-        .brand-header { text-align: center; margin-bottom: 2rem; }
+      /* ───── HEADER / LOGO ───── */
+      .brand-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
 
-        .logo-wrap {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
+      .logo-wrap {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
 
-        .logo-img-area {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(230,126,34,0.3);
-            border-radius: 20px;
-            padding: 12px 28px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 0 40px rgba(230,126,34,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
-        }
+      .logo-img-area {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(230, 126, 34, 0.3);
+        border-radius: 20px;
+        padding: 12px 28px;
+        backdrop-filter: blur(8px);
+        box-shadow:
+          0 0 40px rgba(230, 126, 34, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
 
-        .logo-img {
-            width: 64px; height: 64px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--laranja), var(--laranja-escuro));
-            padding: 3px;
-            box-shadow: 0 0 20px rgba(230,126,34,0.5);
-            flex-shrink: 0;
-        }
-        .logo-img img {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-        }
+      .logo-img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          var(--laranja),
+          var(--laranja-escuro)
+        );
+        padding: 3px;
+        box-shadow: 0 0 20px rgba(230, 126, 34, 0.5);
+        flex-shrink: 0;
+      }
+      .logo-img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+      }
 
-        .logo-text-block h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #fff;
-            line-height: 1;
-            text-shadow: 0 0 30px rgba(230,126,34,0.6);
-        }
-        .logo-text-block .sub {
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--laranja);
-            display: block;
-            margin-top: 4px;
-        }
+      .logo-text-block h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 1;
+        text-shadow: 0 0 30px rgba(230, 126, 34, 0.6);
+      }
+      .logo-text-block .sub {
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--laranja);
+        display: block;
+        margin-top: 4px;
+      }
 
-        .tagline {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 12px;
-            background: rgba(230,126,34,0.12);
-            border: 1px solid rgba(230,126,34,0.25);
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.78rem;
-            color: #ddd;
-            letter-spacing: 0.5px;
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        background: rgba(230, 126, 34, 0.12);
+        border: 1px solid rgba(230, 126, 34, 0.25);
+        padding: 6px 16px;
+        border-radius: 40px;
+        font-size: 0.78rem;
+        color: #ddd;
+        letter-spacing: 0.5px;
+      }
+      .tagline .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--laranja);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
         }
-        .tagline .dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--laranja);
-            animation: pulse 2s infinite;
+        50% {
+          opacity: 0.5;
+          transform: scale(0.8);
         }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50%       { opacity: 0.5; transform: scale(0.8); }
-        }
+      }
 
-        /* ───── SOCIAL ───── */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 1.2rem 0 0.4rem;
-        }
-        .social-link {
-            width: 42px; height: 42px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .social-link:hover {
-            background: var(--laranja);
-            border-color: var(--laranja);
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230,126,34,0.4);
-        }
-        .insta-tag {
-            font-size: 0.7rem;
-            color: var(--texto-suave);
-            letter-spacing: 0.5px;
-            margin-top: 4px;
-        }
+      /* ───── SOCIAL ───── */
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 1.2rem 0 0.4rem;
+      }
+      .social-link {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #bbb;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .social-link:hover {
+        background: var(--laranja);
+        border-color: var(--laranja);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+      }
+      .insta-tag {
+        font-size: 0.7rem;
+        color: var(--texto-suave);
+        letter-spacing: 0.5px;
+        margin-top: 4px;
+      }
 
-        /* ───── CARD BASE ───── */
-        .card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 1.4rem 1.3rem;
-            margin-bottom: 1.2rem;
-            backdrop-filter: blur(4px);
-            transition: border-color 0.2s;
-        }
-        .card:hover { border-color: rgba(230,126,34,0.2); }
+      /* ───── CARD BASE ───── */
+      .card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 1.4rem 1.3rem;
+        margin-bottom: 1.2rem;
+        backdrop-filter: blur(4px);
+        transition: border-color 0.2s;
+      }
+      .card:hover {
+        border-color: rgba(230, 126, 34, 0.2);
+      }
 
-        .intro-card { text-align: center; }
-        .intro-card p {
-            font-size: 0.95rem;
-            color: #ccc;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-        .tags-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-        }
-        .tag {
-            background: rgba(230,126,34,0.12);
-            border: 1px solid rgba(230,126,34,0.25);
-            padding: 5px 14px;
-            border-radius: 40px;
-            font-size: 0.72rem;
-            color: #ddd;
-            font-weight: 500;
-        }
+      .intro-card {
+        text-align: center;
+      }
+      .intro-card p {
+        font-size: 0.95rem;
+        color: #ccc;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .tags-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+      .tag {
+        background: rgba(230, 126, 34, 0.12);
+        border: 1px solid rgba(230, 126, 34, 0.25);
+        padding: 5px 14px;
+        border-radius: 40px;
+        font-size: 0.72rem;
+        color: #ddd;
+        font-weight: 500;
+      }
 
-        /* ───── BOTÕES PRINCIPAIS ───── */
-        .btn-stores-modal, .btn-whats-modal {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, var(--laranja-escuro), var(--laranja));
-            border: none;
-            border-radius: 14px;
-            padding: 1.1rem 1.5rem;
-            cursor: pointer;
-            color: #fff;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.2s;
-            box-shadow: 0 8px 30px rgba(230,126,34,0.35);
-            margin-bottom: 1.2rem;
-        }
-        .btn-stores-modal:hover, .btn-whats-modal:hover {
-            background: linear-gradient(135deg, var(--laranja), #f39c12);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(230,126,34,0.5);
-        }
-        .btn-stores-modal .left, .btn-whats-modal .left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .btn-stores-modal .badge, .btn-whats-modal .badge {
-            background: rgba(0,0,0,0.25);
-            border-radius: 8px;
-            padding: 3px 10px;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-        }
+      /* ───── BOTÕES PRINCIPAIS ───── */
+      .btn-stores-modal,
+      .btn-whats-modal {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(
+          135deg,
+          var(--laranja-escuro),
+          var(--laranja)
+        );
+        border: none;
+        border-radius: 14px;
+        padding: 1.1rem 1.5rem;
+        cursor: pointer;
+        color: #fff;
+        font-family: "Oswald", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        box-shadow: 0 8px 30px rgba(230, 126, 34, 0.35);
+        margin-bottom: 1.2rem;
+      }
+      .btn-stores-modal:hover,
+      .btn-whats-modal:hover {
+        background: linear-gradient(135deg, var(--laranja), #f39c12);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(230, 126, 34, 0.5);
+      }
+      .btn-stores-modal .left,
+      .btn-whats-modal .left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .btn-stores-modal .badge,
+      .btn-whats-modal .badge {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        padding: 3px 10px;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
 
-        /* ───── BOTÃO CARDÁPIO PDF ───── */
-        .btn-cardapio {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #f0f0f0;
-            transition: all 0.2s;
-            margin-bottom: 0.8rem;
-        }
-        .btn-cardapio:hover {
-            background: rgba(230,126,34,0.1);
-            border-color: rgba(230,126,34,0.3);
-            transform: translateY(-1px);
-        }
-        .btn-cardapio .pdf-badge {
-            background: #c0392b;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 1px;
-        }
+      /* ───── BOTÃO CARDÁPIO PDF ───── */
+      .btn-cardapio {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #f0f0f0;
+        transition: all 0.2s;
+        margin-bottom: 0.8rem;
+      }
+      .btn-cardapio:hover {
+        background: rgba(230, 126, 34, 0.1);
+        border-color: rgba(230, 126, 34, 0.3);
+        transform: translateY(-1px);
+      }
+      .btn-cardapio .pdf-badge {
+        background: #c0392b;
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 1px;
+      }
 
-        /* ───── BOTÕES SITE ───── */
-        .btn-site {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #f0f0f0;
-            transition: all 0.2s;
-            margin-bottom: 0.8rem;
-        }
-        .btn-site:hover {
-            background: rgba(230,126,34,0.1);
-            border-color: rgba(230,126,34,0.3);
-            transform: translateY(-1px);
-        }
-        .btn-site .site-badge {
-            background: var(--laranja);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 1px;
-        }
+      /* ───── BOTÕES SITE ───── */
+      .btn-site {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #f0f0f0;
+        transition: all 0.2s;
+        margin-bottom: 0.8rem;
+      }
+      .btn-site:hover {
+        background: rgba(230, 126, 34, 0.1);
+        border-color: rgba(230, 126, 34, 0.3);
+        transform: translateY(-1px);
+      }
+      .btn-site .site-badge {
+        background: var(--laranja);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 1px;
+      }
 
-        /* ───── BOTÃO IFOOD ───── */
-        .btn-order {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #f0f0f0;
-            transition: all 0.2s;
-            margin-bottom: 0.8rem;
-        }
-        .btn-order:hover {
-            background: rgba(234,67,53,0.1);
-            border-color: rgba(234,67,53,0.3);
-            transform: translateY(-1px);
-        }
-        .btn-order .ifood-badge {
-            background: #ea4335;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 0.72rem;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 1px;
-        }
+      /* ───── BOTÃO IFOOD ───── */
+      .btn-order {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #f0f0f0;
+        transition: all 0.2s;
+        margin-bottom: 0.8rem;
+      }
+      .btn-order:hover {
+        background: rgba(234, 67, 53, 0.1);
+        border-color: rgba(234, 67, 53, 0.3);
+        transform: translateY(-1px);
+      }
+      .btn-order .ifood-badge {
+        background: #ea4335;
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 0.72rem;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 1px;
+      }
 
-        /* ───── FOOTER ───── */
-        .footer-note {
-            text-align: center;
-            font-size: 0.68rem;
-            margin-top: 2.5rem;
-            padding-top: 1.2rem;
-            color: #555;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            line-height: 1.8;
-        }
-        .footer-note span { color: var(--laranja); font-weight: 500; }
+      /* ───── FOOTER ───── */
+      .footer-note {
+        text-align: center;
+        font-size: 0.68rem;
+        margin-top: 2.5rem;
+        padding-top: 1.2rem;
+        color: #555;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        line-height: 1.8;
+      }
+      .footer-note span {
+        color: var(--laranja);
+        font-weight: 500;
+      }
 
-        /* ═══════════════════════════════════════
+      /* ═══════════════════════════════════════
            MODAL
         ═══════════════════════════════════════ */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 0;
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 0;
+      }
+      .modal-overlay.open {
+        display: flex;
+        animation: fadeOverlay 0.25s ease;
+      }
+      @keyframes fadeOverlay {
+        from {
+          opacity: 0;
         }
-        .modal-overlay.open {
-            display: flex;
-            animation: fadeOverlay 0.25s ease;
+        to {
+          opacity: 1;
         }
-        @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+      }
 
+      .modal-panel {
+        background: #141414;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px 28px 0 0;
+        width: 100%;
+        max-width: 680px;
+        max-height: 92vh;
+        display: flex;
+        flex-direction: column;
+        animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+        box-shadow: 0 -20px 80px rgba(0, 0, 0, 0.8);
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .modal-handle {
+        width: 40px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 4px;
+        margin: 14px auto 0;
+        flex-shrink: 0;
+      }
+      .modal-header {
+        padding: 1rem 1.5rem 0.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        flex-shrink: 0;
+      }
+      .modal-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .modal-title {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .modal-title i {
+        color: var(--laranja);
+      }
+      .modal-close {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #aaa;
+        font-size: 0.9rem;
+        transition: all 0.15s;
+      }
+      .modal-close:hover {
+        background: var(--laranja);
+        color: #fff;
+        border-color: var(--laranja);
+      }
+
+      .search-wrap {
+        position: relative;
+        margin-bottom: 10px;
+      }
+      .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        font-size: 0.85rem;
+        pointer-events: none;
+      }
+      .modal-search {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 10px 14px 10px 38px;
+        color: #fff;
+        font-family: "Barlow", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .modal-search::placeholder {
+        color: #555;
+      }
+      .modal-search:focus {
+        border-color: rgba(230, 126, 34, 0.5);
+      }
+
+      .modal-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem 1.5rem 2rem;
+      }
+      .modal-body::-webkit-scrollbar {
+        width: 3px;
+      }
+      .modal-body::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+      .modal-body::-webkit-scrollbar-thumb {
+        background: var(--laranja);
+        border-radius: 10px;
+      }
+
+      .modal-count {
+        font-size: 0.72rem;
+        color: #555;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+      }
+      .modal-count span {
+        color: var(--laranja);
+        font-weight: 600;
+      }
+
+      /* Separadores de região */
+      .region-header {
+        font-family: "Oswald", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--laranja);
+        padding: 14px 0 6px;
+        border-bottom: 1px solid rgba(230, 126, 34, 0.15);
+        margin-bottom: 8px;
+        margin-top: 4px;
+      }
+
+      .item-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 8px;
+        background: rgba(255, 255, 255, 0.02);
+        transition: all 0.15s;
+        text-decoration: none;
+        color: inherit;
+      }
+      .item-card:hover {
+        background: rgba(230, 126, 34, 0.08);
+        border-color: rgba(230, 126, 34, 0.3);
+        transform: translateX(2px);
+      }
+      .item-num {
+        font-family: "Oswald", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--laranja);
+        min-width: 28px;
+        text-align: center;
+        padding-top: 2px;
+      }
+      .item-info {
+        flex: 1;
+      }
+      .item-name {
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #fff;
+        letter-spacing: 0.5px;
+        margin-bottom: 3px;
+      }
+      .item-detail {
+        font-size: 0.73rem;
+        color: #888;
+        line-height: 1.5;
+      }
+      .item-detail i {
+        margin-right: 5px;
+        font-size: 0.65rem;
+      }
+      .item-badge {
+        font-size: 0.65rem;
+        background: rgba(230, 126, 34, 0.15);
+        border: 1px solid rgba(230, 126, 34, 0.2);
+        padding: 3px 10px;
+        border-radius: 40px;
+        color: var(--laranja);
+        font-weight: 500;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .wpp-icon {
+        color: #25d366;
+        font-size: 1rem;
+        margin-right: 6px;
+      }
+      .no-results {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #555;
+      }
+      .no-results i {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      .filter-tabs {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+      .filter-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-tab {
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 40px;
+        padding: 5px 14px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: #aaa;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+        font-family: "Barlow", sans-serif;
+      }
+      .filter-tab.active,
+      .filter-tab:hover {
+        background: var(--laranja);
+        border-color: var(--laranja);
+        color: #fff;
+      }
+
+      @media (max-width: 480px) {
+        .logo-text-block h1 {
+          font-size: 1.9rem;
+        }
+        .logo-img {
+          width: 50px;
+          height: 50px;
+        }
+        .card {
+          padding: 1.1rem;
+        }
         .modal-panel {
-            background: #141414;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 28px 28px 0 0;
-            width: 100%;
-            max-width: 680px;
-            max-height: 92vh;
-            display: flex;
-            flex-direction: column;
-            animation: slideUp 0.3s cubic-bezier(0.16,1,0.3,1);
-            overflow: hidden;
-            box-shadow: 0 -20px 80px rgba(0,0,0,0.8);
+          border-radius: 24px 24px 0 0;
         }
-        @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to   { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-handle {
-            width: 40px; height: 4px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 4px;
-            margin: 14px auto 0;
-            flex-shrink: 0;
-        }
-        .modal-header {
-            padding: 1rem 1.5rem 0.8rem;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            flex-shrink: 0;
-        }
-        .modal-title-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-        .modal-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .modal-title i { color: var(--laranja); }
-        .modal-close {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            width: 36px; height: 36px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            color: #aaa;
-            font-size: 0.9rem;
-            transition: all 0.15s;
-        }
-        .modal-close:hover { background: var(--laranja); color: #fff; border-color: var(--laranja); }
-
-        .search-wrap { position: relative; margin-bottom: 10px; }
-        .search-icon {
-            position: absolute;
-            left: 14px; top: 50%;
-            transform: translateY(-50%);
-            color: #666; font-size: 0.85rem;
-            pointer-events: none;
-        }
-        .modal-search {
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 10px 14px 10px 38px;
-            color: #fff;
-            font-family: 'Barlow', sans-serif;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .modal-search::placeholder { color: #555; }
-        .modal-search:focus { border-color: rgba(230,126,34,0.5); }
-
-        .modal-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem 1.5rem 2rem;
-        }
-        .modal-body::-webkit-scrollbar { width: 3px; }
-        .modal-body::-webkit-scrollbar-track { background: #1a1a1a; }
-        .modal-body::-webkit-scrollbar-thumb { background: var(--laranja); border-radius: 10px; }
-
-        .modal-count {
-            font-size: 0.72rem;
-            color: #555;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-        .modal-count span { color: var(--laranja); font-weight: 600; }
-
-        /* Separadores de região */
-        .region-header {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--laranja);
-            padding: 14px 0 6px;
-            border-bottom: 1px solid rgba(230,126,34,0.15);
-            margin-bottom: 8px;
-            margin-top: 4px;
-        }
-
-        .item-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 12px 14px;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.06);
-            margin-bottom: 8px;
-            background: rgba(255,255,255,0.02);
-            transition: all 0.15s;
-            text-decoration: none;
-            color: inherit;
-        }
-        .item-card:hover {
-            background: rgba(230,126,34,0.08);
-            border-color: rgba(230,126,34,0.3);
-            transform: translateX(2px);
-        }
-        .item-num {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--laranja);
-            min-width: 28px;
-            text-align: center;
-            padding-top: 2px;
-        }
-        .item-info { flex: 1; }
-        .item-name {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #fff;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-        .item-detail {
-            font-size: 0.73rem;
-            color: #888;
-            line-height: 1.5;
-        }
-        .item-detail i { margin-right: 5px; font-size: 0.65rem; }
-        .item-badge {
-            font-size: 0.65rem;
-            background: rgba(230,126,34,0.15);
-            border: 1px solid rgba(230,126,34,0.2);
-            padding: 3px 10px;
-            border-radius: 40px;
-            color: var(--laranja);
-            font-weight: 500;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .wpp-icon { color: #25d366; font-size: 1rem; margin-right: 6px; }
-        .no-results { text-align: center; padding: 3rem 1rem; color: #555; }
-        .no-results i { font-size: 2rem; color: #333; margin-bottom: 12px; display: block; }
-
-        .filter-tabs {
-            display: flex;
-            gap: 6px;
-            overflow-x: auto;
-            padding-bottom: 2px;
-        }
-        .filter-tabs::-webkit-scrollbar { display: none; }
-        .filter-tab {
-            flex-shrink: 0;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 40px;
-            padding: 5px 14px;
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: #aaa;
-            cursor: pointer;
-            transition: all 0.15s;
-            white-space: nowrap;
-            font-family: 'Barlow', sans-serif;
-        }
-        .filter-tab.active, .filter-tab:hover {
-            background: var(--laranja);
-            border-color: var(--laranja);
-            color: #fff;
-        }
-
-        @media (max-width: 480px) {
-            .logo-text-block h1 { font-size: 1.9rem; }
-            .logo-img { width: 50px; height: 50px; }
-            .card { padding: 1.1rem; }
-            .modal-panel { border-radius: 24px 24px 0 0; }
-        }
+      }
     </style>
-</head>
-<body>
-
-<!-- SPLASH -->
-<div id="splash">
-    <div class="splash-logo-wrap">
-        <div class="splash-wordmark"><span class="w-chico">CHICO</span><span class="w-grill">GRILL</span></div>
+  </head>
+  <body>
+    <!-- SPLASH -->
+    <div id="splash">
+      <div class="splash-logo-wrap">
+        <div class="splash-wordmark">
+          <span class="w-chico">CHICO</span><span class="w-grill">GRILL</span>
+        </div>
         <div class="splash-line"></div>
         <div class="splash-sub">desde 2000 · São Paulo</div>
+      </div>
     </div>
-</div>
 
-<div class="linktree-container">
-
-    <!-- HEADER -->
-    <div class="brand-header">
+    <div class="linktree-container">
+      <!-- HEADER -->
+      <div class="brand-header">
         <div class="logo-wrap">
-            <div class="logo-img-area">
-                <div class="logo-img">
-                    <img src="image.png" alt="Chico Grill Logo">
-                </div>
-                <div class="logo-text-block">
-                    <h1>CHICO GRILL</h1>
-                    <span class="sub">desde 2000 · São Paulo</span>
-                </div>
+          <div class="logo-img-area">
+            <div class="logo-img">
+              <img src="image.png" alt="Chico Grill Logo" />
             </div>
-            <div class="tagline">
-                <span class="dot"></span>
-                cheddar artesanal · espetos no ponto · 40+ unidades
+            <div class="logo-text-block">
+              <h1>CHICO GRILL</h1>
+              <span class="sub">desde 2000 · São Paulo</span>
             </div>
+          </div>
+          <div class="tagline">
+            <span class="dot"></span>
+            cheddar artesanal · espetos no ponto · 40+ unidades
+          </div>
         </div>
         <div class="social-links">
-            <a href="https://www.instagram.com/chicogrill_01/" target="_blank" class="social-link" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://api.whatsapp.com/send/?phone=5511915925731" target="_blank" class="social-link" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/chicos-grill-indianopolis/767f0c45-c234-4b4f-936e-ce4fd8f044da" target="_blank" class="social-link" aria-label="iFood">
-                <i class="fas fa-utensils"></i>
-            </a>
-        </div>
-        <div class="insta-tag"><i class="fab fa-instagram"></i> @chicogrill_01</div>
-    </div>
-
-    <!-- INTRO -->
-    <div class="card intro-card">
-        <p>Burgers artesanais, espetinhos suculentos e o <strong style="color:#fff;">cheddar que virou febre</strong> em São Paulo. Cada pedaço feito na hora, com carne selecionada e sabor de verdade.</p>
-        <div class="tags-row">
-            <span class="tag">🍖 Espetos</span>
-            <span class="tag">🧀 Cheddar premium</span>
-            <span class="tag">🍔 Burger artesanal</span>
-            <span class="tag">🏆 Desde 2000</span>
-        </div>
-    </div>
-
-    <!-- BOTÃO MODAL LOJAS -->
-    <button class="btn-stores-modal" id="openStoresModal">
-        <div class="left">
-            <i class="fas fa-store"></i>
-            <span>Encontre uma unidade</span>
-            <span class="badge">40+ lojas</span>
-        </div>
-        <i class="fas fa-chevron-right"></i>
-    </button>
-
-    <!-- BOTÃO MODAL WHATSAPP -->
-    <button class="btn-whats-modal" id="openWhatsModal">
-        <div class="left">
+          <a
+            href="https://www.instagram.com/chicogrill_01/"
+            target="_blank"
+            class="social-link"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://api.whatsapp.com/send/?phone=5511915925731"
+            target="_blank"
+            class="social-link"
+            aria-label="WhatsApp"
+          >
             <i class="fab fa-whatsapp"></i>
-            <span>Peça pelo WhatsApp</span>
-            <span class="badge">todas as lojas</span>
+          </a>
+          <a
+            href="troca o link do ifoof para esse link aqui
+
+https://www.ifood.com.br/delivery/sao-paulo-sp/chicogrill-01-planalto-paulista/165cdd79-11f0-4eb8-8265-58d3569be6b4?utm_medium=share"
+            target="_blank"
+            class="social-link"
+            aria-label="iFood"
+          >
+            <i class="fas fa-utensils"></i>
+          </a>
+        </div>
+        <div class="insta-tag">
+          <i class="fab fa-instagram"></i> @chicogrill_01
+        </div>
+      </div>
+
+      <!-- INTRO -->
+      <div class="card intro-card">
+        <p>
+          Burgers artesanais, espetinhos suculentos e o
+          <strong style="color: #fff">cheddar que virou febre</strong> em São
+          Paulo. Cada pedaço feito na hora, com carne selecionada e sabor de
+          verdade.
+        </p>
+        <div class="tags-row">
+          <span class="tag">🍖 Espetos</span>
+          <span class="tag">🧀 Cheddar premium</span>
+          <span class="tag">🍔 Burger artesanal</span>
+          <span class="tag">🏆 Desde 2000</span>
+        </div>
+      </div>
+
+      <!-- BOTÃO MODAL LOJAS -->
+      <button class="btn-stores-modal" id="openStoresModal">
+        <div class="left">
+          <i class="fas fa-store"></i>
+          <span>Encontre uma unidade</span>
+          <span class="badge">40+ lojas</span>
         </div>
         <i class="fas fa-chevron-right"></i>
-    </button>
+      </button>
 
-    
-    <!-- SITES -->
-    <a href="https://www.chicogrill.com.br/" target="_blank" class="btn-site">
-        <span><i class="fas fa-globe" style="color:var(--laranja);margin-right:8px;"></i> Site oficial</span>
+      <!-- BOTÃO MODAL WHATSAPP -->
+      <button class="btn-whats-modal" id="openWhatsModal">
+        <div class="left">
+          <i class="fab fa-whatsapp"></i>
+          <span>Peça pelo WhatsApp</span>
+          <span class="badge">todas as lojas</span>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- SITES -->
+      <a href="https://www.chicogrill.com.br/" target="_blank" class="btn-site">
+        <span
+          ><i
+            class="fas fa-globe"
+            style="color: var(--laranja); margin-right: 8px"
+          ></i>
+          Site oficial</span
+        >
         <span class="site-badge">chico-grill</span>
-    </a>
+      </a>
 
-    <a href="https://chicogrill-moema.com" target="_blank" class="btn-site">
-        <span><i class="fas fa-motorcycle" style="color:var(--laranja);margin-right:8px;"></i> Delivery Online</span>
+      <a href="https://chicogrill-moema.com" target="_blank" class="btn-site">
+        <span
+          ><i
+            class="fas fa-motorcycle"
+            style="color: var(--laranja); margin-right: 8px"
+          ></i>
+          Delivery Online</span
+        >
         <span class="site-badge">peça já</span>
-    </a>
+      </a>
 
-    <!-- IFOOD -->
-    <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/chicos-grill-indianopolis/767f0c45-c234-4b4f-936e-ce4fd8f044da" target="_blank" class="btn-order">
-        <span><i class="fas fa-shopping-bag" style="color:var(--laranja);margin-right:8px;"></i> Peça pelo iFood</span>
+      <!-- IFOOD -->
+      <a
+        href="https://www.ifood.com.br/delivery/sao-paulo-sp/chicos-grill-indianopolis/767f0c45-c234-4b4f-936e-ce4fd8f044da"
+        target="_blank"
+        class="btn-order"
+      >
+        <span
+          ><i
+            class="fas fa-shopping-bag"
+            style="color: var(--laranja); margin-right: 8px"
+          ></i>
+          Peça pelo iFood</span
+        >
         <span class="ifood-badge">iFood</span>
-    </a>
-    <a href="https://drive.google.com/file/d/1zMlBf9GAtIHrZttjq0_Yd6lo3PGRTr1S/view" target="_blank" class="btn-cardapio">
-        <span><i class="fas fa-file-pdf" style="color:#c0392b;margin-right:8px;"></i> Cardápio completo</span>
+      </a>
+      <a
+        href="https://drive.google.com/file/d/1zMlBf9GAtIHrZttjq0_Yd6lo3PGRTr1S/view"
+        target="_blank"
+        class="btn-cardapio"
+      >
+        <span
+          ><i
+            class="fas fa-file-pdf"
+            style="color: #c0392b; margin-right: 8px"
+          ></i>
+          Cardápio completo</span
+        >
         <span class="pdf-badge">PDF</span>
-    </a>
+      </a>
 
-    <div class="footer-note">
-        <span>Chico Grill®</span> · Moema, Vila Olímpia, Faria Lima, Pinheiros, Santo Amaro, Zona Sul, Leste, Norte e Grande SP<br>
-        <i class="fab fa-instagram"></i> @chicogrill_01 · todas as lojas com horário especial
+      <div class="footer-note">
+        <span>Chico Grill®</span> · Moema, Vila Olímpia, Faria Lima, Pinheiros,
+        Santo Amaro, Zona Sul, Leste, Norte e Grande SP<br />
+        <i class="fab fa-instagram"></i> @chicogrill_01 · todas as lojas com
+        horário especial
+      </div>
     </div>
-</div>
 
-<!-- MODAL UNIDADES -->
-<div class="modal-overlay" id="storesModalOverlay">
-    <div class="modal-panel">
+    <!-- MODAL UNIDADES -->
+    <div class="modal-overlay" id="storesModalOverlay">
+      <div class="modal-panel">
         <div class="modal-handle"></div>
         <div class="modal-header">
-            <div class="modal-title-row">
-                <div class="modal-title"><i class="fas fa-map-marker-alt"></i> Nossas Unidades</div>
-                <button class="modal-close close-stores-modal"><i class="fas fa-times"></i></button>
+          <div class="modal-title-row">
+            <div class="modal-title">
+              <i class="fas fa-map-marker-alt"></i> Nossas Unidades
             </div>
-            <div class="search-wrap">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="modal-search" id="storesSearch" placeholder="Buscar por bairro ou região...">
-            </div>
-            <div class="filter-tabs" id="storesFilters">
-                <button class="filter-tab active" data-filter="todas">Todas</button>
-                <button class="filter-tab" data-filter="Zona Sul">Zona Sul</button>
-                <button class="filter-tab" data-filter="Zona Oeste">Zona Oeste</button>
-                <button class="filter-tab" data-filter="Zona Norte">Zona Norte</button>
-                <button class="filter-tab" data-filter="Zona Leste">Zona Leste</button>
-                <button class="filter-tab" data-filter="Grande SP">Grande SP / ABC</button>
-                <button class="filter-tab" data-filter="Interior">Interior</button>
-                <button class="filter-tab" data-filter="Mega Loja">Mega Loja</button>
-            </div>
+            <button class="modal-close close-stores-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="search-wrap">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              class="modal-search"
+              id="storesSearch"
+              placeholder="Buscar por bairro ou região..."
+            />
+          </div>
+          <div class="filter-tabs" id="storesFilters">
+            <button class="filter-tab active" data-filter="todas">Todas</button>
+            <button class="filter-tab" data-filter="Zona Sul">Zona Sul</button>
+            <button class="filter-tab" data-filter="Zona Oeste">
+              Zona Oeste
+            </button>
+            <button class="filter-tab" data-filter="Zona Norte">
+              Zona Norte
+            </button>
+            <button class="filter-tab" data-filter="Zona Leste">
+              Zona Leste
+            </button>
+            <button class="filter-tab" data-filter="Grande SP">
+              Grande SP / ABC
+            </button>
+            <button class="filter-tab" data-filter="Interior">Interior</button>
+            <button class="filter-tab" data-filter="Mega Loja">
+              Mega Loja
+            </button>
+          </div>
         </div>
         <div class="modal-body">
-            <div class="modal-count" id="storesCount"></div>
-            <div id="storesList"></div>
+          <div class="modal-count" id="storesCount"></div>
+          <div id="storesList"></div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- MODAL WHATSAPP -->
-<div class="modal-overlay" id="whatsModalOverlay">
-    <div class="modal-panel">
+    <!-- MODAL WHATSAPP -->
+    <div class="modal-overlay" id="whatsModalOverlay">
+      <div class="modal-panel">
         <div class="modal-handle"></div>
         <div class="modal-header">
-            <div class="modal-title-row" style="margin-bottom:0;">
-                <div class="modal-title"><i class="fab fa-whatsapp"></i> Peça pelo WhatsApp</div>
-                <button class="modal-close close-whats-modal"><i class="fas fa-times"></i></button>
+          <div class="modal-title-row" style="margin-bottom: 0">
+            <div class="modal-title">
+              <i class="fab fa-whatsapp"></i> Peça pelo WhatsApp
             </div>
+            <button class="modal-close close-whats-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
-        <div class="modal-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:2.5rem 1.5rem 3rem;">
-            <div style="text-align:center;">
-                <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;color:#666;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;">Contato central · todas as unidades</div>
-                <div style="font-family:'Oswald',sans-serif;font-size:2.6rem;font-weight:700;color:#fff;letter-spacing:2px;">(11) 91592-5731</div>
+        <div
+          class="modal-body"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 2.5rem 1.5rem 3rem;
+          "
+        >
+          <div style="text-align: center">
+            <div
+              style="
+                font-family: &quot;Oswald&quot;, sans-serif;
+                font-size: 0.7rem;
+                color: #666;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+              "
+            >
+              Contato central · todas as unidades
             </div>
-            <a href="https://chicogrill-moema.com"
-               target="_blank"
-               style="display:flex;align-items:center;justify-content:center;gap:12px;
-                      width:100%;max-width:380px;
-                      background:linear-gradient(135deg,#128C7E,#25d366);
-                      border-radius:14px;padding:1.1rem 1.5rem;
-                      font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;
-                      letter-spacing:1.5px;text-transform:uppercase;color:#fff;
-                      text-decoration:none;
-                      box-shadow:0 8px 30px rgba(37,211,102,0.3);
-                      transition:all 0.2s;">
-                <i class="fab fa-whatsapp" style="font-size:1.5rem;"></i>
-                Abrir WhatsApp
-            </a>
-            <div style="font-size:0.72rem;color:#555;text-align:center;line-height:1.7;">
-                Número único · atende todas as unidades
+            <div
+              style="
+                font-family: &quot;Oswald&quot;, sans-serif;
+                font-size: 2.6rem;
+                font-weight: 700;
+                color: #fff;
+                letter-spacing: 2px;
+              "
+            >
+              (11) 91592-5731
             </div>
+          </div>
+          <a
+            href="https://chicogrill-moema.com"
+            target="_blank"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 12px;
+              width: 100%;
+              max-width: 380px;
+              background: linear-gradient(135deg, #128c7e, #25d366);
+              border-radius: 14px;
+              padding: 1.1rem 1.5rem;
+              font-family: &quot;Oswald&quot;, sans-serif;
+              font-size: 1.1rem;
+              font-weight: 700;
+              letter-spacing: 1.5px;
+              text-transform: uppercase;
+              color: #fff;
+              text-decoration: none;
+              box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+              transition: all 0.2s;
+            "
+          >
+            <i class="fab fa-whatsapp" style="font-size: 1.5rem"></i>
+            Abrir WhatsApp
+          </a>
+          <div
+            style="
+              font-size: 0.72rem;
+              color: #555;
+              text-align: center;
+              line-height: 1.7;
+            "
+          >
+            Número único · atende todas as unidades
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<script>
-    /* ─── SPLASH ─── */
-    window.addEventListener('load', () => {
-        setTimeout(() => document.getElementById('splash').classList.add('hide'), 2200);
-    });
+    <script>
+      /* ─── SPLASH ─── */
+      window.addEventListener("load", () => {
+        setTimeout(
+          () => document.getElementById("splash").classList.add("hide"),
+          2200,
+        );
+      });
 
-    /* ─── DADOS ─── */
-    const lojas = [
-        { num:1,  nome:"MOEMA",              regiao:"Zona Sul",  endereco:"Alameda dos Pamaris, 302",                         horario:"20h às 2h" },
-        { num:2,  nome:"VILA OLÍMPIA",       regiao:"Zona Sul",  endereco:"Rua Gomes de Carvalho, 1726",                     horario:"Segunda à sábado · 18h às 2h" },
-        { num:3,  nome:"FARIA LIMA",         regiao:"Zona Sul",  endereco:"Av. Brigadeiro Faria Lima, 3001",                 horario:"Todos os dias · 10h às 3h" },
-        { num:4,  nome:"ATLÂNTICA",          regiao:"Zona Sul",  endereco:"Av. Atlântica, 2699",                             horario:"20h às 2h" },
-        { num:5,  nome:"PARQUE DAS ÁRVORES", regiao:"Zona Sul",  endereco:"Av. do Arvoreiro, 35",                            horario:"18h às 2h" },
-        { num:6,  nome:"MIGUEL ESTEFANO",    regiao:"Zona Sul",  endereco:"Av. Miguel Estefano, 1930",                       horario:"20h às 2h" },
-        { num:7,  nome:"JABAQUARA",          regiao:"Zona Sul",  endereco:"Av. Eng. Armando de Arruda Pereira, 3204",        horario:"Terça à sábado · 18h às 00h" },
-        { num:8,  nome:"JARDIM MIRNA",       regiao:"Zona Sul",  endereco:"Av. Antônio Carlos Benjamin dos Santos, 3168",    horario:"20h30 às 2h" },
-        { num:9,  nome:"CUPECÊ",             regiao:"Zona Sul",  endereco:"Av. Santa Fonso, 44",                             horario:"Segunda à sábado · 20h às 2h" },
-        { num:10, nome:"CAPÃO",              regiao:"Zona Sul",  endereco:"Av. Comendador Sant'Anna, 1099",                  horario:"Terça à domingo" },
-        { num:11, nome:"ABRÃO DE MORAES",    regiao:"Zona Sul",  endereco:"Rua Don Antônio Galvão, 340",                     horario:"Segunda à sábado · 20h às 2h" },
-        { num:12, nome:"HELIÓPOLIS",         regiao:"Zona Sul",  endereco:"Estrada das Lágrimas, 2100",                      horario:"Segunda à sábado · 20h às 2h" },
-        { num:13, nome:"PINHEIROS",          regiao:"Zona Sul",  endereco:"Rua Butantã, 268",                                horario:"Segunda à sábado · 20h30 às 2h" },
-        { num:14, nome:"JARDIM PRIMAVERA",   regiao:"Zona Sul",  endereco:"Praça João Beiçola",                               horario:"18h30 às 2h" },
-        { num:15, nome:"JARDIM ELIANA",      regiao:"Zona Sul",  endereco:"Av. Dona Belmira Marin, 6004",                    horario:"20h às 2h" },
-        { num:16, nome:"JARDIM SÃO LUÍS",    regiao:"Zona Sul",  endereco:"Rua Nova Tuparoqueira, 530",                      horario:"Terça à domingo · 18h às 1h" },
-        { num:17, nome:"SABARÁ",             regiao:"Zona Sul",  endereco:"Av. Nossa Senhora do Sabará, 4374",               horario:"19h às 1h" },
-        { num:18, nome:"SP MARKET",          regiao:"Zona Sul",  endereco:"Av. Octalles Marcondes Ferreira",                 horario:"18h às 2h" },
-        { num:19, nome:"JAGUARÉ",            regiao:"Zona Oeste",endereco:"Praça Professor Luis Gonzaga, 10",                horario:"20h às 2h" },
-        { num:20, nome:"RAPOSO",             regiao:"Zona Oeste",endereco:"Rua Bernardo dos Santos, 14",                     horario:"Todos os dias · 20h às 2h" },
-        { num:21, nome:"OSASCO",             regiao:"Zona Oeste",endereco:"Rua Cônego Afonso, Osasco",                       horario:"20h às 2h" },
-        { num:22, nome:"TABOÃO DA SERRA",    regiao:"Zona Oeste",endereco:"Estr. Kizaemon Takeuti, 2425",                    horario:"18h30 às 2h" },
-        { num:23, nome:"ANACÊ",              regiao:"Zona Leste",endereco:"Av. Anacê",                                       horario:"19h às 2h" },
-        { num:24, nome:"VILA FORMOSA",       regiao:"Zona Leste",endereco:"Praça Sampaio Vidal",                             horario:"16h30 às 2h" },
-        { num:25, nome:"VILA NHOCUNÉ",       regiao:"Zona Leste",endereco:"Av. Aldeia Manuel Antônio, 55",                   horario:"18h às 2h" },
-        { num:26, nome:"GRIMALDI",           regiao:"Zona Leste",endereco:"Av. Sapopemba, 8756",                             horario:"20h às 2h" },
-        { num:27, nome:"CASA VERDE",         regiao:"Zona Norte",endereco:"Av. Engenheiro Caetano Álvares, 2220",            horario:"20h às 2h" },
-        { num:28, nome:"DIADEMA CAMPANÁRIO", regiao:"Grande SP", endereco:"Av. Brasília, 398",                               horario:"Quarta à segunda · 20h às 00h" },
-        { num:29, nome:"SÃO BERNARDO",       regiao:"Grande SP", endereco:"Av. Marechal Deodoro, 2690",                      horario:"Não abre domingo" },
-        { num:30, nome:"SANTO EDUARDO",      regiao:"Grande SP", endereco:"Padre Nelson José Nigris",                        horario:"18h30 às 2h" },
-        { num:31, nome:"ITAPE",              regiao:"Interior",  endereco:"Victor Manzini",                                  horario:"19h às 00h" },
-        { num:32, nome:"ARARIBÁ",            regiao:"Interior",  endereco:"Av. Silvio Ribeiro de Aragão, 354",               horario:"20h às 2h" },
-        { num:33, nome:"MEGA LOJA",          regiao:"Mega Loja", endereco:"Av. Atlântica, 4393",                             horario:"19h às 2h" },
-        { num:34, nome:"RIBEIRÃO PRETO",     regiao:"Interior",  endereco:"Av. Independência, 2345",                        horario:"19h às 2h" },
-    ];
+      /* ─── DADOS ─── */
+      const lojas = [
+        {
+          num: 1,
+          nome: "MOEMA",
+          regiao: "Zona Sul",
+          endereco: "Alameda dos Pamaris, 302",
+          horario: "20h às 2h",
+        },
+        {
+          num: 2,
+          nome: "VILA OLÍMPIA",
+          regiao: "Zona Sul",
+          endereco: "Rua Gomes de Carvalho, 1726",
+          horario: "Segunda à sábado · 18h às 2h",
+        },
+        {
+          num: 3,
+          nome: "FARIA LIMA",
+          regiao: "Zona Sul",
+          endereco: "Av. Brigadeiro Faria Lima, 3001",
+          horario: "Todos os dias · 10h às 3h",
+        },
+        {
+          num: 4,
+          nome: "ATLÂNTICA",
+          regiao: "Zona Sul",
+          endereco: "Av. Atlântica, 2699",
+          horario: "20h às 2h",
+        },
+        {
+          num: 5,
+          nome: "PARQUE DAS ÁRVORES",
+          regiao: "Zona Sul",
+          endereco: "Av. do Arvoreiro, 35",
+          horario: "18h às 2h",
+        },
+        {
+          num: 6,
+          nome: "MIGUEL ESTEFANO",
+          regiao: "Zona Sul",
+          endereco: "Av. Miguel Estefano, 1930",
+          horario: "20h às 2h",
+        },
+        {
+          num: 7,
+          nome: "JABAQUARA",
+          regiao: "Zona Sul",
+          endereco: "Av. Eng. Armando de Arruda Pereira, 3204",
+          horario: "Terça à sábado · 18h às 00h",
+        },
+        {
+          num: 8,
+          nome: "JARDIM MIRNA",
+          regiao: "Zona Sul",
+          endereco: "Av. Antônio Carlos Benjamin dos Santos, 3168",
+          horario: "20h30 às 2h",
+        },
+        {
+          num: 9,
+          nome: "CUPECÊ",
+          regiao: "Zona Sul",
+          endereco: "Av. Santa Fonso, 44",
+          horario: "Segunda à sábado · 20h às 2h",
+        },
+        {
+          num: 10,
+          nome: "CAPÃO",
+          regiao: "Zona Sul",
+          endereco: "Av. Comendador Sant'Anna, 1099",
+          horario: "Terça à domingo",
+        },
+        {
+          num: 11,
+          nome: "ABRÃO DE MORAES",
+          regiao: "Zona Sul",
+          endereco: "Rua Don Antônio Galvão, 340",
+          horario: "Segunda à sábado · 20h às 2h",
+        },
+        {
+          num: 12,
+          nome: "HELIÓPOLIS",
+          regiao: "Zona Sul",
+          endereco: "Estrada das Lágrimas, 2100",
+          horario: "Segunda à sábado · 20h às 2h",
+        },
+        {
+          num: 13,
+          nome: "PINHEIROS",
+          regiao: "Zona Sul",
+          endereco: "Rua Butantã, 268",
+          horario: "Segunda à sábado · 20h30 às 2h",
+        },
+        {
+          num: 14,
+          nome: "JARDIM PRIMAVERA",
+          regiao: "Zona Sul",
+          endereco: "Praça João Beiçola",
+          horario: "18h30 às 2h",
+        },
+        {
+          num: 15,
+          nome: "JARDIM ELIANA",
+          regiao: "Zona Sul",
+          endereco: "Av. Dona Belmira Marin, 6004",
+          horario: "20h às 2h",
+        },
+        {
+          num: 16,
+          nome: "JARDIM SÃO LUÍS",
+          regiao: "Zona Sul",
+          endereco: "Rua Nova Tuparoqueira, 530",
+          horario: "Terça à domingo · 18h às 1h",
+        },
+        {
+          num: 17,
+          nome: "SABARÁ",
+          regiao: "Zona Sul",
+          endereco: "Av. Nossa Senhora do Sabará, 4374",
+          horario: "19h às 1h",
+        },
+        {
+          num: 18,
+          nome: "SP MARKET",
+          regiao: "Zona Sul",
+          endereco: "Av. Octalles Marcondes Ferreira",
+          horario: "18h às 2h",
+        },
+        {
+          num: 19,
+          nome: "JAGUARÉ",
+          regiao: "Zona Oeste",
+          endereco: "Praça Professor Luis Gonzaga, 10",
+          horario: "20h às 2h",
+        },
+        {
+          num: 20,
+          nome: "RAPOSO",
+          regiao: "Zona Oeste",
+          endereco: "Rua Bernardo dos Santos, 14",
+          horario: "Todos os dias · 20h às 2h",
+        },
+        {
+          num: 21,
+          nome: "OSASCO",
+          regiao: "Zona Oeste",
+          endereco: "Rua Cônego Afonso, Osasco",
+          horario: "20h às 2h",
+        },
+        {
+          num: 22,
+          nome: "TABOÃO DA SERRA",
+          regiao: "Zona Oeste",
+          endereco: "Estr. Kizaemon Takeuti, 2425",
+          horario: "18h30 às 2h",
+        },
+        {
+          num: 23,
+          nome: "ANACÊ",
+          regiao: "Zona Leste",
+          endereco: "Av. Anacê",
+          horario: "19h às 2h",
+        },
+        {
+          num: 24,
+          nome: "VILA FORMOSA",
+          regiao: "Zona Leste",
+          endereco: "Praça Sampaio Vidal",
+          horario: "16h30 às 2h",
+        },
+        {
+          num: 25,
+          nome: "VILA NHOCUNÉ",
+          regiao: "Zona Leste",
+          endereco: "Av. Aldeia Manuel Antônio, 55",
+          horario: "18h às 2h",
+        },
+        {
+          num: 26,
+          nome: "GRIMALDI",
+          regiao: "Zona Leste",
+          endereco: "Av. Sapopemba, 8756",
+          horario: "20h às 2h",
+        },
+        {
+          num: 27,
+          nome: "CASA VERDE",
+          regiao: "Zona Norte",
+          endereco: "Av. Engenheiro Caetano Álvares, 2220",
+          horario: "20h às 2h",
+        },
+        {
+          num: 28,
+          nome: "DIADEMA CAMPANÁRIO",
+          regiao: "Grande SP",
+          endereco: "Av. Brasília, 398",
+          horario: "Quarta à segunda · 20h às 00h",
+        },
+        {
+          num: 29,
+          nome: "SÃO BERNARDO",
+          regiao: "Grande SP",
+          endereco: "Av. Marechal Deodoro, 2690",
+          horario: "Não abre domingo",
+        },
+        {
+          num: 30,
+          nome: "SANTO EDUARDO",
+          regiao: "Grande SP",
+          endereco: "Padre Nelson José Nigris",
+          horario: "18h30 às 2h",
+        },
+        {
+          num: 31,
+          nome: "ITAPE",
+          regiao: "Interior",
+          endereco: "Victor Manzini",
+          horario: "19h às 00h",
+        },
+        {
+          num: 32,
+          nome: "ARARIBÁ",
+          regiao: "Interior",
+          endereco: "Av. Silvio Ribeiro de Aragão, 354",
+          horario: "20h às 2h",
+        },
+        {
+          num: 33,
+          nome: "MEGA LOJA",
+          regiao: "Mega Loja",
+          endereco: "Av. Atlântica, 4393",
+          horario: "19h às 2h",
+        },
+        {
+          num: 34,
+          nome: "RIBEIRÃO PRETO",
+          regiao: "Interior",
+          endereco: "Av. Independência, 2345",
+          horario: "19h às 2h",
+        },
+      ];
 
-    /* ─── STORES MODAL ─── */
-    let storesFiltroAtivo = 'todas';
-    let storesBuscaAtiva  = '';
+      /* ─── STORES MODAL ─── */
+      let storesFiltroAtivo = "todas";
+      let storesBuscaAtiva = "";
 
-    function getStoresFiltradas() {
-        return lojas.filter(l => {
-            const matchRegiao = storesFiltroAtivo === 'todas' || l.regiao === storesFiltroAtivo;
-            const q = storesBuscaAtiva.toLowerCase();
-            const matchBusca = !q ||
-                l.nome.toLowerCase().includes(q) ||
-                l.endereco.toLowerCase().includes(q) ||
-                l.regiao.toLowerCase().includes(q);
-            return matchRegiao && matchBusca;
+      function getStoresFiltradas() {
+        return lojas.filter((l) => {
+          const matchRegiao =
+            storesFiltroAtivo === "todas" || l.regiao === storesFiltroAtivo;
+          const q = storesBuscaAtiva.toLowerCase();
+          const matchBusca =
+            !q ||
+            l.nome.toLowerCase().includes(q) ||
+            l.endereco.toLowerCase().includes(q) ||
+            l.regiao.toLowerCase().includes(q);
+          return matchRegiao && matchBusca;
         });
-    }
+      }
 
-    function renderStores() {
-        const container = document.getElementById('storesList');
-        const countEl   = document.getElementById('storesCount');
+      function renderStores() {
+        const container = document.getElementById("storesList");
+        const countEl = document.getElementById("storesCount");
         if (!container) return;
         const lista = getStoresFiltradas();
-        countEl.innerHTML = `<span>${lista.length}</span> unidade${lista.length !== 1 ? 's' : ''} encontrada${lista.length !== 1 ? 's' : ''}`;
+        countEl.innerHTML = `<span>${lista.length}</span> unidade${lista.length !== 1 ? "s" : ""} encontrada${lista.length !== 1 ? "s" : ""}`;
         if (lista.length === 0) {
-            container.innerHTML = `<div class="no-results"><i class="fas fa-search"></i>Nenhuma unidade encontrada.<br><small style="color:#444;margin-top:6px;display:block;">Tente outra região ou palavra.</small></div>`;
-            return;
+          container.innerHTML = `<div class="no-results"><i class="fas fa-search"></i>Nenhuma unidade encontrada.<br><small style="color:#444;margin-top:6px;display:block;">Tente outra região ou palavra.</small></div>`;
+          return;
         }
-        container.innerHTML = '';
-        let lastRegiao = '';
-        lista.forEach(l => {
-            if (storesFiltroAtivo === 'todas' && l.regiao !== lastRegiao) {
-                lastRegiao = l.regiao;
-                const sep = document.createElement('div');
-                sep.className = 'region-header';
-                sep.innerHTML = `<i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>${l.regiao}`;
-                container.appendChild(sep);
-            }
-            const div = document.createElement('div');
-            div.className = 'item-card';
-            div.style.cursor = 'default';
-            div.innerHTML = `
+        container.innerHTML = "";
+        let lastRegiao = "";
+        lista.forEach((l) => {
+          if (storesFiltroAtivo === "todas" && l.regiao !== lastRegiao) {
+            lastRegiao = l.regiao;
+            const sep = document.createElement("div");
+            sep.className = "region-header";
+            sep.innerHTML = `<i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>${l.regiao}`;
+            container.appendChild(sep);
+          }
+          const div = document.createElement("div");
+          div.className = "item-card";
+          div.style.cursor = "default";
+          div.innerHTML = `
                 <div class="item-num">${l.num}</div>
                 <div class="item-info">
                     <div class="item-name">${l.nome}</div>
@@ -911,52 +1409,68 @@
                 </div>
                 <div class="item-badge">${l.regiao}</div>
             `;
-            container.appendChild(div);
+          container.appendChild(div);
         });
-    }
+      }
 
-    /* ─── ABRIR/FECHAR ─── */
-    function openStoresModal() {
-        document.getElementById('storesModalOverlay').classList.add('open');
-        document.body.style.overflow = 'hidden';
+      /* ─── ABRIR/FECHAR ─── */
+      function openStoresModal() {
+        document.getElementById("storesModalOverlay").classList.add("open");
+        document.body.style.overflow = "hidden";
         renderStores();
-    }
-    function openWhatsModal() {
-        document.getElementById('whatsModalOverlay').classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeStoresModal() {
-        document.getElementById('storesModalOverlay').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    function closeWhatsModal() {
-        document.getElementById('whatsModalOverlay').classList.remove('open');
-        document.body.style.overflow = '';
-    }
+      }
+      function openWhatsModal() {
+        document.getElementById("whatsModalOverlay").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeStoresModal() {
+        document.getElementById("storesModalOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function closeWhatsModal() {
+        document.getElementById("whatsModalOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+      }
 
-    /* ─── LISTENERS ─── */
-    document.getElementById('openStoresModal').addEventListener('click', openStoresModal);
-    document.getElementById('openWhatsModal').addEventListener('click', openWhatsModal);
-    document.querySelectorAll('.close-stores-modal').forEach(btn => btn.addEventListener('click', closeStoresModal));
-    document.querySelectorAll('.close-whats-modal').forEach(btn => btn.addEventListener('click', closeWhatsModal));
-    document.getElementById('storesModalOverlay').addEventListener('click', e => {
-        if (e.target === document.getElementById('storesModalOverlay')) closeStoresModal();
-    });
-    document.getElementById('whatsModalOverlay').addEventListener('click', e => {
-        if (e.target === document.getElementById('whatsModalOverlay')) closeWhatsModal();
-    });
-    document.getElementById('storesSearch').addEventListener('input', e => {
+      /* ─── LISTENERS ─── */
+      document
+        .getElementById("openStoresModal")
+        .addEventListener("click", openStoresModal);
+      document
+        .getElementById("openWhatsModal")
+        .addEventListener("click", openWhatsModal);
+      document
+        .querySelectorAll(".close-stores-modal")
+        .forEach((btn) => btn.addEventListener("click", closeStoresModal));
+      document
+        .querySelectorAll(".close-whats-modal")
+        .forEach((btn) => btn.addEventListener("click", closeWhatsModal));
+      document
+        .getElementById("storesModalOverlay")
+        .addEventListener("click", (e) => {
+          if (e.target === document.getElementById("storesModalOverlay"))
+            closeStoresModal();
+        });
+      document
+        .getElementById("whatsModalOverlay")
+        .addEventListener("click", (e) => {
+          if (e.target === document.getElementById("whatsModalOverlay"))
+            closeWhatsModal();
+        });
+      document.getElementById("storesSearch").addEventListener("input", (e) => {
         storesBuscaAtiva = e.target.value;
         renderStores();
-    });
-    document.querySelectorAll('#storesFilters .filter-tab').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('#storesFilters .filter-tab').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            storesFiltroAtivo = btn.dataset.filter;
-            renderStores();
+      });
+      document.querySelectorAll("#storesFilters .filter-tab").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll("#storesFilters .filter-tab")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          storesFiltroAtivo = btn.dataset.filter;
+          renderStores();
         });
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>
