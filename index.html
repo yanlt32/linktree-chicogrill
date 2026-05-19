@@ -790,6 +790,29 @@
         color: #fff;
       }
 
+      .maps-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 8px;
+        background: rgba(66, 133, 244, 0.12);
+        border: 1px solid rgba(66, 133, 244, 0.3);
+        border-radius: 8px;
+        padding: 5px 12px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #7ab3ff;
+        text-decoration: none;
+        transition: all 0.15s;
+        letter-spacing: 0.3px;
+      }
+      .maps-btn:hover {
+        background: rgba(66, 133, 244, 0.25);
+        border-color: rgba(66, 133, 244, 0.6);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
       @media (max-width: 480px) {
         .logo-text-block h1 {
           font-size: 1.9rem;
@@ -1307,6 +1330,13 @@
           horario: "20h às 2h",
         },
         {
+          num: 35,
+          nome: "FREGUESIA DO Ó",
+          regiao: "Zona Norte",
+          endereco: "Av. Min. Petrônio Portela, 555",
+          horario: "Segunda à sábado · 20h às 2h",
+        },
+        {
           num: 28,
           nome: "DIADEMA CAMPANÁRIO",
           regiao: "Grande SP",
@@ -1395,6 +1425,9 @@
             sep.innerHTML = `<i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>${l.regiao}`;
             container.appendChild(sep);
           }
+          const mapsQuery = encodeURIComponent(`Chico Grill ${l.nome} ${l.endereco} São Paulo`);
+          const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+
           const div = document.createElement("div");
           div.className = "item-card";
           div.style.cursor = "default";
@@ -1404,6 +1437,9 @@
                     <div class="item-name">${l.nome}</div>
                     <div class="item-detail"><i class="fas fa-map-marker-alt" style="color:var(--laranja);"></i>${l.endereco}</div>
                     <div class="item-detail"><i class="far fa-clock" style="color:var(--laranja);"></i> ${l.horario}</div>
+                    <a href="${mapsUrl}" target="_blank" class="maps-btn">
+                      <i class="fas fa-map-marked-alt"></i> Ver no Maps
+                    </a>
                 </div>
                 <div class="item-badge">${l.regiao}</div>
             `;
