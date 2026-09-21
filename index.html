@@ -1225,6 +1225,7 @@
           regiao: "Zona Sul",
           endereco: "Av. Santa Fonso, 44",
           horario: "Segunda à sábado · 20h às 2h",
+          whatsapp: "5511985270030",
         },
         {
           num: 10,
@@ -1246,6 +1247,7 @@
           regiao: "Zona Sul",
           endereco: "Estrada das Lágrimas, 2100",
           horario: "Segunda à sábado · 20h às 2h",
+          whatsapp: "5511949556689",
         },
         {
           num: 13,
@@ -1309,6 +1311,7 @@
           regiao: "Zona Leste",
           endereco: "Av. Anacê",
           horario: "19h às 2h",
+          whatsapp: "5511946304961",
         },
         {
           num: 24,
@@ -1316,6 +1319,7 @@
           regiao: "Zona Leste",
           endereco: "Praça Sampaio Vidal",
           horario: "16h30 às 2h",
+          whatsapp: "5511946304961",
         },
         {
           num: 27,
@@ -1344,6 +1348,7 @@
           regiao: "Grande SP",
           endereco: "Av. Marechal Deodoro, 2690",
           horario: "Não abre domingo",
+          whatsapp: "5511959286860",
         },
         {
           num: 30,
@@ -1407,6 +1412,7 @@
           regiao: "Zona Leste",
           endereco: "Praça da Toco · Vila Matilde",
           horario: "Todos os dias · a partir das 19h",
+          whatsapp: "5511946304961",
         },
         {
           num: 40,
@@ -1414,6 +1420,7 @@
           regiao: "Zona Leste",
           endereco: "Praça Nossa Senhora Bom Parto · Tatuapé",
           horario: "Todos os dias · a partir das 19h",
+          whatsapp: "5511946304961",
         },
         {
           num: 42,
@@ -1428,6 +1435,15 @@
           regiao: "Zona Leste",
           endereco: "Praça do Morcegão",
           horario: "Todos os dias · 19h30 às 2h",
+          whatsapp: "5511946304961",
+        },
+        {
+          num: 44,
+          nome: "OURIVES",
+          regiao: "Zona Leste",
+          endereco: "Rua Luiz Feriani, 282",
+          horario: "Segunda a sábado · 19h às 1h",
+          whatsapp: "5511981520706",
         },
       ];
 
@@ -1471,6 +1487,9 @@
           }
           const mapsQuery = encodeURIComponent(`Chico Grill ${l.nome} ${l.endereco} São Paulo`);
           const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+          const whatsUrl = l.whatsapp
+            ? `https://api.whatsapp.com/send/?phone=${l.whatsapp}&text=${encodeURIComponent("Olá! Gostaria de mais informações.")}&type=phone_number&app_absent=0`
+            : "";
 
           const div = document.createElement("div");
           div.className = "item-card";
@@ -1481,9 +1500,18 @@
                     <div class="item-name">${l.nome}</div>
                     <div class="item-detail"><i class="fas fa-map-marker-alt" style="color:var(--laranja);"></i>${l.endereco}</div>
                     <div class="item-detail"><i class="far fa-clock" style="color:var(--laranja);"></i> ${l.horario}</div>
-                    <a href="${mapsUrl}" target="_blank" class="maps-btn">
-                      <i class="fas fa-map-marked-alt"></i> Ver no Maps
-                    </a>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                      <a href="${mapsUrl}" target="_blank" class="maps-btn">
+                        <i class="fas fa-map-marked-alt"></i> Ver no Maps
+                      </a>
+                      ${
+                        whatsUrl
+                          ? `<a href="${whatsUrl}" target="_blank" class="maps-btn" style="background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4);color:#25D366;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                      </a>`
+                          : ""
+                      }
+                    </div>
                 </div>
                 <div class="item-badge">${l.regiao}</div>
             `;
