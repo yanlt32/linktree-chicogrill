@@ -1211,6 +1211,7 @@
           regiao: "Zona Sul",
           endereco: "Av. Eng. Armando de Arruda Pereira, 3204",
           horario: "Terça à sábado · 18h às 00h",
+          ifood: "https://www.ifood.com.br/delivery/sao-paulo-sp/chico-grill-jabaquara-vila-fachini/bc1c218c-c3b1-4cf7-ac99-15120d965e6e",
         },
         {
           num: 8,
@@ -1508,6 +1509,13 @@
                         whatsUrl
                           ? `<a href="${whatsUrl}" target="_blank" class="maps-btn" style="background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4);color:#25D366;">
                         <i class="fab fa-whatsapp"></i> WhatsApp
+                      </a>`
+                          : ""
+                      }
+                      ${
+                        l.ifood
+                          ? `<a href="${l.ifood}" target="_blank" class="maps-btn" style="background:rgba(234,67,53,0.15);border-color:rgba(234,67,53,0.4);color:#ea4335;">
+                        <i class="fas fa-utensils"></i> iFood
                       </a>`
                           : ""
                       }
